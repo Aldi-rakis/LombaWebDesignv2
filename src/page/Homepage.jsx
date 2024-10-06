@@ -103,39 +103,66 @@ const Homepage = () => {
 
             <section id='about'>
 
-                <div className='bg-[#fff]'>
+                <div className='bg-[#fff] my-[100px] py-[1'>
 
-                <div className="card bg-[#fff] m-20 shadow-[0_14px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] rounded-[50px] transition-shadow duration-300 hover:shadow-[0_20px_30px_rgba(151,109,0,0.3),_0_4px_6px_rgba(255,255,255,0.3)]">
-  <p className="text-2xl font-bold text-center">Welcome to FoodCycle!</p>
+                    <div className="card bg-[#fff] m-20 shadow-[0_14px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] rounded-[50px] transition-shadow duration-300 hover:shadow-[0_20px_30px_rgba(151,109,0,0.3),_0_4px_6px_rgba(255,255,255,0.3)]">
+                        <p className="text-2xl font-bold text-center">Welcome to FoodCycle!</p>
 
-  <div className='flex justify-center items-center relative'>
-    <div className='w-3/4 px-[70px]'>
-      <p className='text-[20px]'>
-        Di FoodCycle, kami percaya bahwa makanan tidak seharusnya terbuang. Misi kami adalah menciptakan sistem pangan yang berkelanjutan dengan menghubungkan Anda dengan makanan sisa yang lezat dari UMKM, restoran, dan kafe yang masih segar dan aman untuk dinikmati. Kami berusaha mengurangi limbah makanan sambil menyediakan pilihan makan yang terjangkau untuk semua orang.
-      </p>
-      <button className='bg-[#FB9333] hover:bg-[#ff9f45] mt-5 py-2 px-5 rounded-2xl inline-block text-white font-regular'>
-        learn more
-      </button>
-    </div>
+                        <div className='flex justify-center items-center relative'>
+                            <div className='w-3/4 px-[70px]'>
+                                <p className='text-[20px]'>
+                                    Di FoodCycle, kami percaya bahwa makanan tidak seharusnya terbuang. Misi kami adalah menciptakan sistem pangan yang berkelanjutan dengan menghubungkan Anda dengan makanan sisa yang lezat dari UMKM, restoran, dan kafe yang masih segar dan aman untuk dinikmati. Kami berusaha mengurangi limbah makanan sambil menyediakan pilihan makan yang terjangkau untuk semua orang.
+                                </p>
+                                <button className='bg-[#FB9333] hover:bg-[#ff9f45] mt-5 py-2 px-5 rounded-2xl inline-block text-white font-regular'>
+                                    learn more
+                                </button>
+                            </div>
 
-    <div className='relative py-5 px-[70px] hover:scale-101 '>
-      {/* <!-- Gambar utama --> */}
-      <img className='w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
+                            <div className='relative py-5 px-[70px] hover:scale-101 '>
+                                {/* <!-- Gambar utama --> */}
+                                <img className='w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
 
-      {/* <!-- Gambar kecil di sudut kanan atas --> */}
-      <img className='absolute top-0 right-10 w-[80px] rounded-full transform translate-x-2 translate-y-[-10px]' src={icon} alt="small overlay" />
-    </div>
-  </div>
-</div>
-
-
-
-
+                                {/* <!-- Gambar kecil di sudut kanan atas --> */}
+                                <img className='absolute top-0 right-10 w-[80px] rounded-full transform translate-x-2 translate-y-[-10px]' src={icon} alt="small overlay" />
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+            </section> 
+            <section id='menu' className='bg-[#fff]'>
+  <div className='bg-[#fff] px-5'>
+    <div className='flex justify-center items-center m-auto gap-10 h-[100px] my-10 text-center px-[70px]'>
+      <div className='flex w-[65%] items-center justify-center'>
+        <p className='text-[45px] font-bold text-start'>WHY CHOOSE US FOR YOUR HEALTHY FOOD</p>
+      </div>
 
+      <div className='flex w-3/4 items-center justify-center'>
+        <p className='text-[24px] text-justify text-[#828282]'>Nikmati makanan sehat dan seimbang tanpa menguras kantong. Kami menyediakan bahan-bahan berkualitas tinggi dari mitra tepercaya untuk memberikan Anda pilihan bergizi dengan harga yang Anda sukai.</p>
+      </div>
+    </div>
 
-            </section>
+    {/* <!-- Grid untuk card --> */}
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center px-[70px] items-center mt-10'>
+      {/* <!-- Card 1 --> */}
+      <div className='bg-[#fff] shadow-xl rounded-lg p-5 h-[300px] w-auto mx-6'>
+        <p className='text-[24px] font-bold'>Card 1</p>
+        <p>Deskripsi untuk Card 1</p>
+      </div>
+
+      {/* <!-- Card 2 --> */}
+      <div className='bg-[#fff] shadow-xl rounded-lg p-5 h-[300px] w-auto mx-5'>
+        <p className='text-[24px] font-bold'>Card 1</p>
+        <p>Deskripsi untuk Card 1</p>
+      </div>
+      {/* <!-- Card 3 --> */}
+      <div className='bg-[#fff] shadow-xl rounded-lg p-5 h-[300px] w-auto mx-5'>
+        <p className='text-[24px] font-bold'>Card 1</p>
+        <p>Deskripsi untuk Card 1</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
