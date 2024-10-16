@@ -2,18 +2,22 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Homepage from './page/Homepage'
+import Pesanan from "./page/pesanan"
 import './App.css'
 
+//import routes
+import Routes from './routes/Routes';
+
+
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
 
-      <Homepage />
+     <Routes />
       
     </div>
   )
 }
-
 export default App
