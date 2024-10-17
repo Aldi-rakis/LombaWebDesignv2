@@ -9,6 +9,8 @@ import 'swiper/css/pagination';
 // import './styles.css';
 import { Pagination } from 'swiper/modules';
 
+import chatbot from '../component/chatbot'
+
 
 import people from '../assets/people.png'
 import about from '../assets/about.png'
@@ -21,6 +23,7 @@ import quickdelivery from '../assets/quickdelivery.png'
 import phone from '../assets/phone.png'
 import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
+import ChatBot from '../component/chatbot';
 
 const Homepage = () => {
   return (
@@ -387,6 +390,8 @@ const Homepage = () => {
         </div>
       </div>
     </section>
+
+  <ChatBot />
 
 
     
