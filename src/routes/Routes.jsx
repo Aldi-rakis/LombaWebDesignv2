@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from '../page/Homepage';
 
 import Pesanan from "../page/pesanan";
+import GeminiAIComponent from "../page/Gemini";
 
 function RoutesIndex() {
     return (
@@ -20,6 +21,8 @@ function RoutesIndex() {
 
              {/* route "homepage" */}
              <Route path="/pesan" element={<Pesanan />} />
+
+             <Route path="/ai" element={<GeminiAIComponent />} />
 
 
         </Routes>
