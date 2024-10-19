@@ -9,6 +9,8 @@ import 'swiper/css/pagination';
 // import './styles.css';
 import { Pagination } from 'swiper/modules';
 
+import chatbot from '../component/chatbot'
+
 
 import people from '../assets/people.png'
 import about from '../assets/about.png'
@@ -18,339 +20,489 @@ import icon3 from '../assets/icon3.png'
 import discount from '../assets/discount.png'
 import cs from '../assets/cs.png'
 import quickdelivery from '../assets/quickdelivery.png'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-
+import phone from '../assets/phone.png'
+import apple from '../assets/Apple_logo.png'
+import playstore from '../assets/playstore.png'
+import ChatBot from '../component/chatbot';
 
 const Homepage = () => {
   return (
     <div>
 
 
-      {/* <!-- Section Home --> */}
-      <section id="home">
-        <nav class="flex nav justify-between items-center px-[100px] max-lg:px-[0px] fixed w-full z-50 bg-white shadow-xl">
-          {/* <!-- Logo --> */}
-          <p className='text-3xl text-[#FB9331] font-poppins font-bold'>FoodCycle</p>
+<section id="home">
+      <nav className="flex justify-between items-center px-10 lg:px-[100px] fixed w-full z-50 bg-white shadow-xl">
+        {/* Logo */}
+        <p className="text-3xl text-[#FB9331] font-poppins font-bold">FoodCycle</p>
 
-          <ul class="flex text-lg py-5 px-5 text-[#575757] poppins text-[24px] font-poppins font-medium  lg:flex">
-            <li class="mx-3  section-link hover:font-bold" data-section="home"><a href="#home">Home</a></li>
-            <li class="mx-3 section-link hover:font-bold" data-section="produk"><a href="#produk">Produk</a></li>
-            <li class="mx-3 section-link hover:font-bold" data-section="mitra"><a href="#mitra">Mitra</a></li>
-            <li class="mx-3 section-link hover:font-bold" data-section="hubungi"><a href="#hubungi">Hubungi kami</a></li>
-          </ul>
+        {/* Navigation Menu */}
+        <ul className="hidden lg:flex text-lg py-5 px-5 text-[#575757] font-poppins font-medium">
+          <li className="mx-3 section-link hover:font-bold" data-section="home">
+            <a href="#home">Home</a>
+          </li>
+          <li className="mx-3 section-link hover:font-bold" data-section="produk">
+            <a href="#produk">Produk</a>
+          </li>
+          <li className="mx-3 section-link hover:font-bold" data-section="mitra">
+            <a href="#mitra">Mitra</a>
+          </li>
+          <li className="mx-3 section-link hover:font-bold" data-section="hubungi">
+            <a href="#hubungi">Hubungi kami</a>
+          </li>
+        </ul>
 
-          {/* <!-- Mobile Menu Button --> */}
-          {/* <button id="menu-btn" class="lg:hidden flex items-center px-3 py-2  rounded text-white border-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </button> */}
+        {/* Sign-in Button */}
+        <button className="hidden lg:block bg-[#FB9333] text-white px-5 py-2 rounded-lg">Sign In</button>
+      </nav>
 
-          {/* <!-- Mobile Menu --> */}
-          {/* <div id="mobile-menu" class=" fixed pt-2 w-full z-[-1] text-white bg-[#0367b3]  flex flex-col justify-center items-center  ">
-            <a href="#home" class="text-xl  py-2 px-4 hover:font-bold " data-section="home">Home</a>
-            <a href="#produk" class="text-xl py-2 px-4 hover:font-bold " data-section="produk">Produk</a>
-            <a href="#mitra" class="text-xl py-2 px-4 hover:font-bold" data-section="mitra">Mitra</a>
-            <a href="#hubungi" class="text-xl py-2 px-4 hover:font-bold " data-section="hubungi">Hubungi kami</a>
-        </div> */}
+      <header
+        id="home"
+        className="py-20 bg-gradient-to-tr from-white to-[rgba(249,225,191,0.85)] h-max lg:h-[100vh] px-8 sm:px-[80px]  bg-cover flex flex-col sm:flex-row items-center gap-10"
+      >
+        {/* Kolom Teks */}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="flex flex-col gap-5 text-center sm:text-left sm:ml-[60px] mt-[0px] lg:mt-20 sm:order-1"
+        >
+          <h1 className="text-start text-3xl lg:text-4xl font-poppins font-extrabold text-black">
+            <span className="text-[#FB9333]">Rescue Food,</span> Save <span className="text-[#3BB469]">the Planet</span>
+          </h1>
+          <p className="text-start text-md leading-5 lg:text-4xl font-poppins font-semibold text-black">
+            Mari bersama Menjaga Bumi dan Mengurangi sampah makanan
+          </p>
+          <p className="text-start text-md lg:text-lg font-medium text-[#828282] leading-5">
+            Enjoy quality meals at discounted prices while reducing food waste.
+          </p>
 
-          <button className='bg-[#FB9333] text-white px-5 py-2 rounded-lg max-lg:hidden'>sign in</button>
-        </nav>
-
-        <header id="home" class="py-20 bg-gradient-to-tr from-[rgb(255,255,255)] to-[rgba(249,225,191,0.85)] max-sm:h-[700px] h-fit px-[40px] bg-[url('<?php echo base_url('assets/main/image/bg-atas.jpg'); ?>')] flex items-center flex-col sm:flex-row gap-10 sm:gap-0">
-          {/* <!-- Kolom Teks --> */}
-          <div data-aos="fade-up"
-            data-aos-duration="1000"
-            className="ml-[80px] mt-[70px] max popins max-md:mt-20px] max-md:ml-[0px] max-lg:text-center order-2 sm:order-1">
-            <div class="flex max-lg:justify-center ">
-
-              <h1 className="text-black max-sm:text-md text-5xl max-lg:text-3xl font-poppins font-extrabold"> <span className='text-[#FB9333]'>Rescue Food, </span> Save <span className='text-[#3BB469]'> the Planet</span></h1>
-            </div>
-            <div className=" max-lg:px-[10px] mt-5 max-lg:mt-2">
-              <p class="text-5xl font-poppins font-semibold text-black max-md:text-[18px]  max-lg:text-sm">
-                Mari bersama Menjaga Bumi dan Mengurangi sampah makanan
-              </p>
-
-              <p className='text-xl mt-6 font-medium text-[#828282]'>Enjoy quality meals at discounted prices while reducing food waste.</p>
-
-            </div>
-
-            <div className='flex gap-5 mt-10'>
-              <a href="<?php echo base_url('assets/main/company-profile-adhivasindo2.pdf'); ?>" target="_blank" class="bg-[#FB9333] hover:bg-[#ff9f45] mt-5 py-2 text-lg px-3 max-lg:text-md  rounded-xl inline-block">
-                <p class="text-white  font-semibold max-lg:text-sm"> Order Food</p>
-              </a>
-
-              <p className='text-xl mt-5 font-medium bg-[#FFF0DC] py-2 px-3 rounded-xl inline-block max-lg:text-md max-lg:mt-0 max-lg:px-[10px] text-[#FB9333]'>#1  Best Healthy Salad</p>
-
-            </div>
-
-            <div className='flex gap-10 mt-10'>
-
-              <div >
-                <p className='text-[24px] font-semibold '>5000+</p>
-                <p className='text-[14px] font-medium text-[#828282]'>Customers</p>
-              </div>
-
-              <div >
-                <p className='text-[24px] font-semibold '>8.000+</p>
-                <p className='text-[14px] font-medium text-[#828282]'>Delivery</p>
-              </div>
-
-              <div >
-                <p className='text-[24px] font-semibold '>1.000+</p>
-                <p className='text-[14px] font-medium text-[#828282]'>Ratings</p>
-              </div>
-
-            </div>
-
-
-
-
-          </div>
-
-          {/* <!-- Kolom Gambar --> */}
-          <div data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="800"
-            class="pt-[20px] order-1 sm:order-2">
-            <img class="w-[1200px]   max-md:w-[350px] max-lg:w-[400px] max-md:pt-[20px]" src={people} alt="'); ?>" />
-
-          </div>
-
-        </header>
-      </section>
-
-      <section id='about'>
-
-        <div className='bg-[#fff] my-[100px] py-[1'>
-
-          <div className="card bg-[#fff] m-20 shadow-[0_14px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] rounded-[50px] transition-shadow duration-300 hover:shadow-[0_20px_30px_rgba(151,109,0,0.3),_0_4px_6px_rgba(255,255,255,0.3)]">
-            <p className="text-2xl font-bold text-center">Welcome to FoodCycle!</p>
-
-            <div className='flex justify-center items-center relative'>
-              <div className='w-3/4 px-[70px]'>
-                <p className='text-[20px]'>
-                  Di FoodCycle, kami percaya bahwa makanan tidak seharusnya terbuang. Misi kami adalah menciptakan sistem pangan yang berkelanjutan dengan menghubungkan Anda dengan makanan sisa yang lezat dari UMKM, restoran, dan kafe yang masih segar dan aman untuk dinikmati. Kami berusaha mengurangi limbah makanan sambil menyediakan pilihan makan yang terjangkau untuk semua orang.
-                </p>
-                <button className='bg-[#FB9333] hover:bg-[#ff9f45] mt-5 py-2 px-5 rounded-2xl inline-block text-white font-regular'>
-                  learn more
-                </button>
-              </div>
-
-              <div className='relative py-5 px-[70px] hover:scale-101 '>
-                {/* <!-- Gambar utama --> */}
-                <img className='w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
-
-                {/* <!-- Gambar kecil di sudut kanan atas --> */}
-                <img className='absolute top-0 right-10 w-[80px] rounded-full transform translate-x-2 translate-y-[-10px]' src={icon} alt="small overlay" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section id='menu' className='bg-[#fff]'>
-        <div className='bg-[#fff] px-5 py-5'>
-          <div className='flex justify-center items-center m-auto gap-10 h-[100px] my-10 text-center px-[140px]'>
-            <div className='flex w-[65%] items-center justify-center'>
-              <p className='text-[40px] font-semibold text-start'>WHY CHOOSE US <hr />FOR <span className='text-[#FB9333]'> YOUR HEALTHY FOOD</span> </p>
-            </div>
-
-            <div className='flex w-3/4 items-center justify-center'>
-              <p className='text-[18px] text-justify text-[#828282]'>Nikmati makanan sehat dan seimbang tanpa menguras kantong. Kami menyediakan bahan-bahan berkualitas tinggi dari mitra tepercaya untuk memberikan Anda pilihan bergizi dengan harga yang Anda sukai.</p>
-            </div>
-          </div>
-
-          <div className='flex justify-center items-center'>
-            {/* <!-- Grid untuk card --> */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center px-[5px] items-center mt-10'>
-
-              {/* <!-- Card 1 --> */}
-              <div className='bg-[#fff] rounded-[10px] p-5 h-[auto] w-[350px] mx-2 flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
-      hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
-      transform hover:scale-105 transition-all duration-300'>
-                <div>
-                  <img className='w-[80px]' src={icon2} alt="" />
-                </div>
-                <div className='mt-10'>
-                  <p className='text-[22px] font-bold'>Mendukung Keberlanjutan</p>
-                  <p className='mt-2'> berkontribusi pada lingkungan yang lebih baik. Setiap hidangan yang Anda pilih di FoodCycle membantu mengurangi dampak negatif terhadap planet kita.</p>
-                  <button className='mt-3'>learn more</button>
-                </div>
-              </div>
-
-              {/* <!-- Card 2 --> */}
-              <div className='bg-[#fff] rounded-[10px] p-5 h-[auto] w-[350px] mx-6 flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
-      hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
-      transform hover:scale-105 transition-all duration-300'>
-                <div>
-                  <img className='w-[80px]' src={icon3} alt="" />
-                </div>
-                <div className='mt-10'>
-                  <p className='text-[22px] font-bold'>#Makanan Berkualitas , Harga Terjangkau</p>
-                  <p className='mt-2'> Nikmati berbagai pilihan makanan lezat yang masih segar dan berkualitas tinggi, semuanya dengan harga yang lebih terjangkau.</p>
-                  <button className='p-2 mt-3 hover:bg-[#FB9331] hover:p-2 rounded-lg'>learn more</button>
-                </div>
-              </div>
-
-              {/* <!-- Card 3 --> */}
-              <div className='bg-[#fff] rounded-[10px] p-5 h-[auto] w-[350px] mx-6 flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
-      hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
-      transform hover:scale-105 transition-all duration-300'>
-                <div>
-                  <img className='w-[80px]' src={icon2} alt="" />
-                </div>
-                <div className='mt-10'>
-                  <p className='text-[22px] font-bold'>Dukungan untuk Komunitas Lokal</p>
-                  <p className='mt-2'> Kami juga mendukung bisnis lokal kepada UMKM, restoran dan kafe untuk mengurangi limbah makanan</p>
-                  <button className='mt-3'>learn more</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section id='Testimonial' className='bg-[#FFF2E1] justify-center items-center'>
-        <div className='flex justify-center items-center mx-[100px] mt-[100px]'>
-          <div className='w-1/3 justify-center '>
-
-            <p className='text-[#333333] text-[48px] font-semibold'>What Are People
-              Saying About Us</p>
-
-            <p className='mt-5'>We are very happy if you are satisfied with our service and products, let's read pure reviews from customers who bought our products.</p>
-
-          </div>
-
-          <div className='w-2/3 py-10 '>
-
-            <Swiper
-              slidesPerView={3}
-              centeredSlides={true}
-              spaceBetween={30}
-              grabCursor={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Pagination]}
-              className="mySwiper"
+          <div className="flex gap-5 justify-center sm:justify-start mt-5">
+            <a
+              href="/path/to/company-profile.pdf"
+              target="_blank"
+              className="bg-[#FB9333] hover:bg-[#ff9f45] py-2 px-3 rounded-xl text-white font-semibold text-sm"
             >
-              <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center' >
-                <div className='w-20 mb-5' >
-                  <img className='w-3 rounded-full' src="" alt="" />
-
-                </div>
-
-                <div className=' h-[150px]     flex flex-col  items-center   rounded-[10px]'>
-
-                  <p className='text-[18px] font-semibold'>Selena Gomez</p>
-                  <p className='mt-2 text-[12px] text-start'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.</p>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center' >
-                <div className='w-20 mb-5' >
-                  <img className='w-3 rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
-
-                </div>
-
-                <div className=' h-[150px]     flex flex-col  items-center   rounded-[10px]'>
-
-                  <p className='text-[18px] font-semibold'>Selena Gomez</p>
-                  <p className='mt-2 text-[12px] text-start'>The lorem50 salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.</p>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center' >
-                <div className='w-20 mb-5' >
-                  <img className='w-3 rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
-
-                </div>
-
-                <div className=' h-[150px]     flex flex-col  items-center   rounded-[10px]'>
-
-                  <p className='text-[18px] font-semibold'>Selena Gomez</p>
-                  <p className='mt-2 text-[12px] text-start'>The lorem50 salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.</p>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center' >
-                <div className='w-20 mb-5' >
-                  <img className='w-3 rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
-
-                </div>
-
-                <div className=' h-[150px]     flex flex-col  items-center   rounded-[10px]'>
-
-                  <p className='text-[18px] font-semibold'>Selena Gomez</p>
-                  <p className='mt-2 text-[12px] text-start'>The lorem50 salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.</p>
-                </div>
-              </SwiperSlide>
-
-
-
-            </Swiper>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <section id='service' className='bg-[#FEEFD0] flex justify-center items-center'>
-
-        <div className='bg-white p-10 rounded-[20px] my-20 mx-[200px] flex w-full gap-16'>
-          <div className='w-1/3 flex items-center justify-center'>
-            <img src={discount} alt="" />
-            <p
-              className="text-[35px] font-semibold"
-              style={{
-                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Daily Discounts
+              Order Food
+            </a>
+            <p className="bg-[#f1f0ef] py-2 px-3 rounded-xl text-[#FB9333] font-medium text-sm">
+              #1 Best Healthy Salad
             </p>
           </div>
 
-          <div className='w-1/3 flex items-center justify-center'>
-            <img src={cs} alt="" />
-            <p
-              className="text-[35px] font-semibold"
-              style={{
-                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              24/7Customer Support</p>
+          <div className="flex gap-5 lg:gap-10 justify-center sm:justify-start mt-2 lg:mt-10">
+            <div>
+              <p className="text-2xl font-semibold">5000+</p>
+              <p className="text-sm text-[#828282]">Customers</p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold">8.000+</p>
+              <p className="text-sm text-[#828282]">Delivery</p>
+            </div>
+            <div>
+              <p className="text-2xl font-semibold">1.000+</p>
+              <p className="text-sm text-[#828282]">Ratings</p>
+            </div>
           </div>
-
-          <div className='w-1/3 flex items-center justify-center'>
-            <img src={quickdelivery} alt="" />
-            <p
-              className="text-[35px] font-semibold"
-              style={{
-                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Quick Delivery</p>
-          </div>
-
-
         </div>
 
+        {/* Kolom Gambar */}
+        <div
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="800"
+          className="order-2 sm:order-2"
+        >
+          <img
+            className="w-full lg:w-[1000px]"
+            src={people}
+            alt="People Eating Healthy Food"
+          />
+        </div>
+      </header>
+    </section>
 
-      </section>
+      <section id='about'>
+  <div className='bg-[#fff] my-[50px] md:my-[100px] py-5 md:py-[20px]'>
+    <div className="card bg-[#fff] mx-4 md:mx-20 shadow-[0_14px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] rounded-[20px] md:rounded-[50px] transition-shadow duration-300 hover:shadow-[0_20px_30px_rgba(151,109,0,0.3),_0_4px_6px_rgba(255,255,255,0.3)]">
+      <p className="text-xl md:text-2xl font-bold text-center p-4">Welcome to FoodCycle!</p>
+
+      <div className='flex flex-col md:flex-row justify-center items-center relative'>
+        <div className='w-full md:w-3/4 px-5 md:px-[30px] md:py-[30px] lg:px-[70px]'>
+          <p className='text-justify text-[16px] md:text-[15px] lg:text-[18px]'>
+            Di FoodCycle, kami percaya bahwa makanan tidak seharusnya terbuang. Misi kami adalah menciptakan sistem pangan yang berkelanjutan dengan menghubungkan Anda dengan makanan sisa yang lezat dari UMKM, restoran, dan kafe yang masih segar dan aman untuk dinikmati. Kami berusaha mengurangi limbah makanan sambil menyediakan pilihan makan yang terjangkau untuk semua orang.
+          </p>
+          <button className='bg-[#FB9333] hover:bg-[#ff9f45] mt-5 py-2 px-4 md:px-5 rounded-2xl inline-block text-white font-regular'>
+            Learn more
+          </button>
+        </div>
+
+        <div className='relative py-5 px-5 md:px-[70px] hover:scale-101'>
+          {/* Gambar utama */}
+          <img className='w-[100%] md:w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
+
+          {/* Gambar kecil di sudut kanan atas */}
+          <img className='absolute top-0 right-5 md:right-10 w-[50px] md:w-[80px] rounded-full transform translate-x-1 md:translate-x-2 translate-y-[-5px] md:translate-y-[-10px]' src={icon} alt="small overlay" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id='menu' className='bg-[#fff]'>
+  <div className='bg-[#fff] px-3 md:px-5 py-5'>
+    <div className='flex flex-col md:flex-row justify-center items-center m-auto gap-5 md:gap-10 h-auto md:h-[100px] my-5 md:my-10 text-center px-4 md:px-[140px]'>
+      <div className='flex w-full md:w-[65%] items-center justify-center'>
+        <p className='text-[24px] md:text-[40px] font-semibold text-start'>
+          WHY CHOOSE US 
+        
+          FOR <span className='text-[#FB9333]'> YOUR HEALTHY FOOD</span>
+        </p>
+      </div>
+
+      <div className='flex w-full md:w-3/4 items-center justify-center mt-0 md:mt-0'>
+        <p className='text-[16px] md:text-[18px] text-justify text-[#828282]'>
+          Nikmati makanan sehat dan seimbang tanpa menguras kantong. Kami menyediakan bahan-bahan berkualitas tinggi dari mitra tepercaya untuk memberikan Anda pilihan bergizi dengan harga yang Anda sukai.
+        </p>
+      </div>
+    </div>
+
+    <div className='flex justify-center items-center'>
+      {/* Grid untuk card */}
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 px-2 md:px-[5px] items-center mt-5 md:mt-10'>
+        
+        {/* Card 1 */}
+        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
+        transform hover:scale-105 transition-all duration-300'>
+          <div>
+            <img className='w-[60px] md:w-[80px]' src={icon2} alt="" />
+          </div>
+          <div className='mt-5 md:mt-10'>
+            <p className='text-[18px] md:text-[22px] font-bold'>Mendukung Keberlanjutan</p>
+            <p className='mt-2 text-[14px] md:text-[16px]'>Berpartisipasi dalam lingkungan yang lebih baik. Setiap hidangan yang Anda pilih di FoodCycle membantu mengurangi dampak negatif terhadap planet kita.</p>
+            <button className='mt-3 text-[14px] bg-[#FB9333] hover:bg-[#ff9f45] py-2 px-4 rounded-lg text-white'>
+              Learn more
+            </button>
+          </div>
+        </div>
+
+        {/* Card 2 */}
+        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
+        transform hover:scale-110 transition-all duration-300'>
+          <div>
+            <img className='w-[60px] md:w-[80px]' src={icon3} alt="" />
+          </div>
+          <div className='mt-5 md:mt-10'>
+            <p className='text-[18px] md:text-[22px] font-bold'>Makanan Berkualitas, Harga Terjangkau</p>
+            <p className='mt-2 text-[14px] md:text-[16px]'>Nikmati berbagai pilihan makanan lezat yang masih segar dan berkualitas tinggi, semuanya dengan harga yang lebih terjangkau.</p>
+            <button className='mt-3 text-[14px] bg-[#FB9333] hover:bg-[#ff9f45] py-2 px-4 rounded-lg text-white'>
+              Learn more
+            </button>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
+        transform hover:scale-105 transition-all duration-300'>
+          <div>
+            <img className='w-[60px] md:w-[80px]' src={icon2} alt="" />
+          </div>
+          <div className='mt-5 md:mt-10'>
+            <p className='text-[18px] md:text-[22px] font-bold'>Dukungan untuk Komunitas Lokal</p>
+            <p className='mt-2 text-[14px] md:text-[16px]'>Kami juga mendukung bisnis lokal kepada UMKM, restoran, dan kafe untuk mengurangi limbah makanan.</p>
+            <button className='mt-3 text-[14px] bg-[#FB9333] hover:bg-[#ff9f45] py-2 px-4 rounded-lg text-white'>
+              Learn more
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id='Testimonial' className='bg-[#FFF2E1] justify-center items-center'>
+  <div className='flex flex-col lg:flex-row justify-center items-center mx-5 lg:mx-[100px] mt-[50px] lg:mt-[100px]'>
+    <div className='w-full lg:w-1/3 justify-center text-center lg:text-left mb-1 lg:mb-0'>
+      <p className='text-[#333333] mt-2 leading-8 lg:leading-normal text-[26px] lg:text-[48px] font-semibold'>
+        What Are People Saying About Us
+      </p>
+      <p className='mt-5 text-[12px] lg:text-[16px]'>
+        We are very happy if you are satisfied with our service and products, let's read pure reviews from customers who bought our products.
+      </p>
+    </div>
+
+    <div className='w-3/4 lg:w-2/3 py-5 lg:py-10'>
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={true}
+        spaceBetween={10}
+        grabCursor={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+        breakpoints={{
+          // Responsive breakpoints
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+      >
+        <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center'>
+          <div className='w-16 lg:w-20 mb-5'>
+            <img className='rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
+          </div>
+          <div className='h-[150px] flex flex-col items-center rounded-[10px]'>
+            <p className='text-[16px] lg:text-[18px] font-semibold'>Selena Gomez</p>
+            <p className='mt-2 text-[12px] lg:text-[14px] text-center'>
+              The salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.
+            </p>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center'>
+          <div className='w-16 lg:w-20 mb-5'>
+            <img className='rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
+          </div>
+          <div className='h-[150px] flex flex-col items-center rounded-[10px]'>
+            <p className='text-[16px] lg:text-[18px] font-semibold'>Selena Gomez</p>
+            <p className='mt-2 text-[12px] lg:text-[14px] text-center'>
+              The salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.
+            </p>
+          </div>
+        </SwiperSlide>
+
+        {/* Other SwiperSlides go here */}
+
+      </Swiper>
+    </div>
+  </div>
+</section>
+
+
+<section id='service' className='bg-[#FEEFD0] flex justify-center items-center'>
+  <div className='bg-white p-5 lg:px-10 rounded-[20px] my-10 lg:my-20 mx-5 lg:mx-[100px] flex flex-col lg:flex-row w-full gap-8 lg:gap-16'>
+    <div className='w-full lg:w-1/3 flex flex-col lg:flex-row items-center justify-center mb-5 lg:mb-0'>
+      <img className='w-16 lg:w-auto' src={discount} alt="Discount Icon" />
+      <p
+        className="text-[24px] lg:text-[35px] font-semibold text-start mt-2 lg:mt-4"
+        style={{
+          background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Daily Discounts
+      </p>
+    </div>
+
+    <div className='w-full lg:w-1/3 flex flex-col lg:flex-row  items-center justify-center mb-5 lg:mb-0'>
+      <img className='w-16 lg:w-auto' src={cs} alt="Customer Support Icon" />
+      <p
+        className="text-[24px] lg:text-[35px] font-semibold text-center mt-2 lg:mt-4"
+        style={{
+          background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        24/7 Customer Support
+      </p>
+    </div>
+
+    <div className='w-full lg:w-1/3 flex flex-col lg:flex-row  items-center justify-center'>
+      <img className='w-16 lg:w-auto' src={quickdelivery} alt="Quick Delivery Icon" />
+      <p
+        className="text-[24px] lg:text-[35px] font-semibold text-start mt-2 lg:mt-4"
+        style={{
+          background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        Quick Delivery
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section className="bg-gradient-to-b from-[#FEEFD0] to-[#FEE298] py-5 lg:py-5 flex justify-center items-center">
+      <div className="flex flex-col lg:flex-row items-center gap-10 w-full max-w-7xl px-5">
+        {/* Phone Mockups */}
+        <div className="flex w-2/3 justify-center items-center gap-5">
+          
+          <img
+            src={phone}
+            alt="Phone Mockup 2"
+            className="w-[200px] md:w-[300px] lg:w-[600px]"
+          />
+        </div>
+
+        {/* Text and Buttons Section */}
+        <div className="text-center lg:text-left">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#FFB800] mb-4">
+            Install the app
+          </h2>
+          <p className="text-gray-600 text-sm lg:text-base mb-6 max-w-md">
+            It's never been easier to order food. Look for the finest discounts
+            and you'll be lost in a world of delectable food.
+          </p>
+          <div className="flex justify-center lg:justify-start gap-2">
+            <a
+              href="#"
+              className="bg-[#ffffff] text-[12px] text-black px-2 py-2 lg:text-[16px] lg:px-4 lg:py-4 rounded-md flex items-center gap-2 hover:bg-[#dfdede]"
+            >
+              <img
+                src={playstore}
+                alt="Google Play"
+                className=" w-5 w-10"
+              />
+              Get it on Google Play
+            </a>
+            <a
+              href="#"
+              className="bg-[#ffffff] text-[12px] text-black px-2 py-1 lg:text-[16px] lg:px-4 lg:py-4  rounded-md flex items-center gap-2 hover:bg-[#dfdede]"
+            >
+              <img
+                src={apple}
+                alt="App Store"
+                className=" w-5 lg:w-10"
+              />
+              Download on the App Store
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <ChatBot />
+
+
+    
+    <footer className="bg-gray-900 text-gray-400 py-10 px-6 lg:px-20">
+      {/* Top Cities Section */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        <div>
+          <h3 className="text-white text-lg mb-2">Our top cities</h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white transition-colors">San Francisco</li>
+            <li className="hover:text-white transition-colors">Miami</li>
+            <li className="hover:text-white transition-colors">San Diego</li>
+            <li className="hover:text-white transition-colors">East Bay</li>
+            <li className="hover:text-white transition-colors">Long Beach</li>
+          </ul>
+        </div>
+        <div>
+          <ul className="space-y-1 mt-6 sm:mt-0">
+            <li className="hover:text-white transition-colors">Los Angeles</li>
+            <li className="hover:text-white transition-colors">Washington DC</li>
+            <li className="hover:text-white transition-colors">Seattle</li>
+            <li className="hover:text-white transition-colors">Portland</li>
+            <li className="hover:text-white transition-colors">Nashville</li>
+          </ul>
+        </div>
+        <div>
+          <ul className="space-y-1 mt-6 sm:mt-0">
+            <li className="hover:text-white transition-colors">New York City</li>
+            <li className="hover:text-white transition-colors">Orange County</li>
+            <li className="hover:text-white transition-colors">Atlanta</li>
+            <li className="hover:text-white transition-colors">Charlotte</li>
+            <li className="hover:text-white transition-colors">Denver</li>
+          </ul>
+        </div>
+        <div>
+          <ul className="space-y-1 mt-6 sm:mt-0">
+            <li className="hover:text-white transition-colors">Chicago</li>
+            <li className="hover:text-white transition-colors">Phoenix</li>
+            <li className="hover:text-white transition-colors">Las Vegas</li>
+            <li className="hover:text-white transition-colors">Sacramento</li>
+            <li className="hover:text-white transition-colors">Oklahoma City</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Company, Contact, Legal, Social and Subscription Section */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
+        {/* Company Section */}
+        <div>
+          <h3 className="text-white text-lg mb-2">Company</h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white transition-colors">About us</li>
+            <li className="hover:text-white transition-colors">Team</li>
+            <li className="hover:text-white transition-colors">Careers</li>
+            <li className="hover:text-white transition-colors">Blog</li>
+          </ul>
+        </div>
+
+        {/* Contact Section */}
+        <div>
+          <h3 className="text-white text-lg mb-2">Contact</h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white transition-colors">Help & Support</li>
+            <li className="hover:text-white transition-colors">Partner with us</li>
+            <li className="hover:text-white transition-colors">Ride with us</li>
+          </ul>
+        </div>
+
+        {/* Legal Section */}
+        <div>
+          <h3 className="text-white text-lg mb-2">Legal</h3>
+          <ul className="space-y-1">
+            <li className="hover:text-white transition-colors">Terms & Conditions</li>
+            <li className="hover:text-white transition-colors">Refund & Cancellation</li>
+            <li className="hover:text-white transition-colors">Privacy Policy</li>
+            <li className="hover:text-white transition-colors">Cookie Policy</li>
+          </ul>
+        </div>
+
+        {/* Social Media and Subscription Section */}
+        <div>
+          <h3 className="text-white text-lg mb-2">FOLLOW US</h3>
+          <div className="flex space-x-4 mb-4">
+            {/* Social Media Icons */}
+            <a href="#" className="hover:text-white transition-colors">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              <i className="fab fa-twitter"></i>
+            </a>
+          </div>
+          <p className="mb-2">Receive exclusive offers in your mailbox</p>
+          <form className="flex flex-col lg:flex-row">
+            <input
+              type="email"
+              placeholder="Enter Your email"
+              className="w-full text-sm md:text-lg px-3 py-2 rounded-l-md bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            />
+            <button
+              type="submit"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-2 rounded-r-md transition-colors"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
 
 
 
