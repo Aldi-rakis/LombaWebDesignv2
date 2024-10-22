@@ -17,56 +17,63 @@ import donut from '../assets/icon/donut.png'
 import clock from '../assets/icon/clock.png'
 import burger from '../assets/image/burger.png'
 import CardSwiper from '../component/card-swiper/card-swiper'
+import Popup from 'reactjs-popup';
 
 function Pesanan() {
 
   const [isOpen, setIsOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([])
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  console.log(cartItems)
+
   const dummy = [
     {
       id: 1,
       name: "Cheese Burger",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 2,
       name: "Toffe’s Cake",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 3,
       name: "Dancake",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 4,
       name: "Crispy Sandwitch",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 5,
       name: "Thai Soup",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 6,
       name: "Cheese Burger",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
     {
       id: 7,
       name: "Cheese Burger",
-      price: "Rp.10.000",
+      price: 10000,
       desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
     },
   ]
@@ -92,8 +99,194 @@ function Pesanan() {
     },
   ]
 
+  const addProduct = (item) => {
+    const existingProduct = cartItems.find(cartItem => cartItem.id === item.id)
+
+    if (existingProduct) {
+      setCartItems(cartItems.map(cartItem =>
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      ))
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  }
+
+  const removeProduct = (item) => {
+    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+
+    if (existingItem) {
+      if (existingItem.quantity > 1) {
+        setCartItems(cartItems.map(cartItem =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        ));
+      } else {
+        setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
+      }
+    }
+  };
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleConfirm = () => {
+    if (!name || !number) {
+      alert("Please fill in all fields."); // Validasi sederhana
+      return;
+    }
+
+    setIsConfirmOpen(true);
+    setIsOpen(!isOpen);
+    toggleModal();
+  };
+
+  const handleCloseConfirm = () => {
+    setIsConfirmOpen(false); // Tutup pop-up konfirmasi
+  };
+
   return (
     <>
+
+      {/* Modal Form */}
+      {isOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 transition-all m-3">
+          <div className="fixed inset-0 bg-black bg-opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
+            <h2 className="text-xl font-medium mb-4">Detail Pemesanan</h2>
+            <form>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className='w-full border-2 border-neutral-300 rounded p-2 ps-4'
+                placeholder='Nama Pemesan'
+              />
+              <input
+                type="text"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                className='w-full border-2 border-neutral-300 rounded p-2 ps-4 my-2'
+                placeholder='No Pemesan'
+              />
+            </form>
+            <div className="mt-4 flex justify-end items-center gap-3">
+              <button onClick={toggleModal} className="bg-red-500 text-white px-4 py-2 rounded-md">
+                Close
+              </button>
+              <button onClick={handleConfirm} className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Lanjutkan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Pop-up Konfirmasi */}
+      {isConfirmOpen && (
+        // <Popup open={isConfirmOpen} onClose={handleCloseConfirm}>
+        //   <div className="modal">
+        //     <h2 className="text-xl font-medium">Detail Pemesanan</h2>
+        //     <p>Nama: {name}</p>
+        //     <p>No Pemesan: {number}</p>
+        //     <p>Produk yang dibeli:</p>
+        //     <ul>
+        //       {cartItems.map(item => (
+        //         <li key={item.id}>{item.name} - {item.quantity} x Rp. {item.price}</li>
+        //       ))}
+        //     </ul>
+        //     <p>Total Harga: Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}</p>
+        //     <button onClick={handleCloseConfirm} className="bg-red-500 text-white px-4 py-2 rounded-md">
+        //       Close
+        //     </button>
+        //   </div>
+        // </Popup>
+        <div className="fixed inset-0 flex items-center justify-center z-50 transition-all m-3">
+          <div className="fixed inset-0 bg-black bg-opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
+            <h2 className="text-xl font-medium mb-4">Detail Pemesanan</h2>
+            {(
+              <div>
+                <div className='flex items-center justify-between border-b-2 py-2'>
+                  <h1>Nama Pemesan: </h1>
+                  <p className='font-semibold'>{name}</p>
+                </div>
+                <div className='flex items-center justify-between border-b-2 py-2'>
+                  <h1>Nomer Pemesan: </h1>
+                  <p className='font-semibold'>{number}</p>
+                </div>
+                <div className='h-60 overflow-y-auto'>
+                  {
+                    cartItems.map((item, index) => (
+                      <div className='mt-2 bg-[#F17228] text-white p-3 rounded'>
+                        <div className='flex items-center justify-between'>
+                          <div>
+                            <h1 className='font-semibold'>{item.name}</h1>
+                            <h1>{item.price * item.quantity}</h1>
+                          </div>
+
+                          <div className='bg-white py-1 px-3 rounded-full flex items-center gap-2'>
+                            <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold' onClick={() => removeProduct(item)}> - </button>
+                            <p className='text-black'>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
+
+                            <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-medium' onClick={() => addProduct(item)}> + </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+                <div className='text-black mt-4'>
+                  <div className='flex justify-between border-b-2 py-2'>
+                    <h1>Total Pemesanan : </h1>
+                    <p className=' font-semibold'>
+                      Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+                    </p>
+                  </div>
+                  <div className='flex justify-between border-b-2 py-2'>
+                    <h1>Potongan Diskon : </h1>
+                    <p className=' font-semibold'>
+                      Rp. 0
+                    </p>
+                  </div>
+                  <div className='flex justify-between border-b-2 py-2'>
+                    <h1>Grand Total : </h1>
+                    <p className=' font-semibold'>
+                      Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="mt-4 flex justify-end items-center gap-3">
+              <button className=" text-red-600 font-semibold px-4 py-2 rounded-md w-full" onClick={handleCloseConfirm}>
+                Batalkan Pesanan
+              </button>
+              <button className="bg-[#F17228] text-white font-semibold px-4 py-2 rounded-md w-full">
+                Pesan Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+      {
+        cartItems.length > 0 && (
+          <div className='bg-[#FFB20E] fixed w-full z-10 bottom-0 flex items-center p-3 justify-between hover:bg-[#edb742] transition-all' onClick={toggleModal}>
+            <div className='text-white'>
+              <h1>{cartItems.reduce((acc, item) => acc + item.quantity, 0)} item(s)</h1>
+              <p className='text-white font-semibold'>
+                Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}
+              </p>
+            </div>
+            <button className='text-white font-semibold'>Lihat Pesanan</button>
+          </div>
+        )
+      }
+
+
       {/* Section 1 */}
       <section className='h-fit bg-cover bg-center flex'
         style={{ backgroundImage: `url(${bgHome})` }}>
@@ -139,8 +332,8 @@ function Pesanan() {
       </section>
 
       {/* Section 2 */}
-      <section className=' '>
-        <div className=' h-fit bg-neutral-100 p-4 sm:p-10'>
+      <section className='p-4 sm:p-10'>
+        <div className=' h-fit'>
           <h1 className='text-3xl font-bold text-[#F17228] text-center'>How does it work</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-3/4 m-auto justify-center gap-8 my-14'>
             <div className=''>
@@ -189,39 +382,33 @@ function Pesanan() {
               <p>Makanan yang banyak disukai</p>
             </div>
 
-            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-5 items-center gap-2 sm:gap-5'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div className='bg-white shadow-xl rounded-lg max-h-[475px] h-full'>
+                  <div className='bg-white shadow-xl rounded-lg max-h-[575px] h-full'>
                     <div className='relative'>
                       <div className='p-2'>
                         <img src={burger} alt="" className='bg-centers object-cover w-full' />
-                        <div className='flex items-center absolute top-4 left-4 gap-2'>
-                          <div className='bg-white p-2 rounded-full px-3 font-bold text-[#F17228]'>
-                            <p className='text-[10px] sm:text-[14px]'>{item.price}</p>
-                          </div>
-                          {/* <div className='bg-[#FFB20E] p-2 rounded-full px-4 font-bold text-white flex items-center gap-2'>
-                          <img src={clock} alt="" />
-                          <p className='text-[14px]'>Fast</p>
-                        </div> */}
-                        </div>
                       </div>
-                      {/* <div className='bg-white py-1 px-3 rounded-full flex items-center justify-center gap-3 absolute w-fit translate-x-16 -translate-y-14 max-sm:translate-x-24 max-lg:translate-x-10'>
-                        <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold'> - </button>
-                        <p>0</p>
-                        <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold'> + </button>
-                      </div> */}
+                      <div className='bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2'>
+                        <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold' onClick={() => removeProduct(item)}> - </button>
+                        <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
+
+                        <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold' onClick={() => addProduct(item)}> + </button>
+                      </div>
                     </div>
                     <div className='p-3'>
-                      <div>
+                      <div className=''>
                         <div className='flex items-center justify-between my-1'>
-                          <h1 className='text-sm md:text-xl font-bold'>{item.name}</h1>
-                          <h4 className='text-base font-medium'>4.5</h4>
+                          <h1 className="text-sm md:text-lg font-semibold truncate max-w-[65%]" title={item.name}>
+                            {item.name || 'Unnamed Item'}
+                          </h1>
+                          <h4 className='text-sm font-medium'>Rp. {item.price}</h4>
                         </div>
-                      <p className='text-justify text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
                       </div>
                       <div>
-                        <button className='w-full mt-3 bg-[#F17228] text-white font-medium p-1 rounded-[5px] shadow-md shadow-[#f1722858]'>Lihat Detail</button>
+                        <p className='text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
+                        <button className='w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]'>Lihat Detail</button>
                       </div>
                     </div>
                   </div>
