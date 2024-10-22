@@ -94,33 +94,10 @@ function Pesanan() {
 
   return (
     <>
-      <nav className='flex justify-between px-10 items-center p-4 shadow-md fixed bg-white w-full z-10'>
-        <div className=''>
-          <h1 className='font-bold text-[#FB9333] text-2xl'>Food <span className='text-[#3BB469]'>Cycle</span></h1>
-        </div>
-
-        <ul className='hidden gap-10 md:flex'>
-          <li className='font-bold opacity-55 text-[#FB9300]'>Home</li>
-          <li className='font-bold opacity-55'>Menu</li>
-          <li className='font-bold opacity-55'>Contact</li>
-          <li className='font-bold opacity-55'>About Us</li>
-        </ul>
-
-        <button className='bg-[#FB9333] hidden md:block text-white font-medium p-2 px-10 rounded-full'>
-          Login
-        </button>
-
-        <div className="space-y-2 cursor-pointer md:hidden">
-          <span className={`block w-8 h-1 bg-black transform transition duration-300 ease-in-out ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-8 h-1 bg-black transition duration-300 ease-in-out ${isOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-8 h-1 bg-black transform transition duration-300 ease-in-out ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </div>
-      </nav>
-
       {/* Section 1 */}
       <section className='h-fit bg-cover bg-center flex'
         style={{ backgroundImage: `url(${bgHome})` }}>
-        <div className=' h-fit m-auto w-full sm:w-[90%] flex flex-col sm:flex-row pt-32 pb-10 items-center justify-around gap-28'>
+        <div className=' h-fit m-auto w-full sm:w-[90%] flex flex-col sm:flex-row pt-32 pb-10 items-center justify-around gap-0 sm:gap-28'>
           {/* left */}
           <div className='w-3/5 max-lg:w-[90%]'>
             <h1 className='text-white text-6xl font-bold'>Are you starving ?</h1>
@@ -140,7 +117,7 @@ function Pesanan() {
               </div>
               <hr className='my-5' />
 
-              <div className='w-full flex justify-around gap-2'>
+              <div className='w-full flex flex-col justify-around gap-2'>
                 <form action="" className='bg-slate-100 p-2 flex items-center px-4 w-full'>
                   <img src={bag} alt="ramen" />
                   <input type="text" name="" id="" className='bg-transparent outline-none px-2' placeholder='Enter Your Address' />
@@ -163,7 +140,7 @@ function Pesanan() {
 
       {/* Section 2 */}
       <section className=' '>
-        <div className=' h-fit bg-neutral-100 p-10'>
+        <div className=' h-fit bg-neutral-100 p-4 sm:p-10'>
           <h1 className='text-3xl font-bold text-[#F17228] text-center'>How does it work</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-3/4 m-auto justify-center gap-8 my-14'>
             <div className=''>
@@ -212,34 +189,43 @@ function Pesanan() {
               <p>Makanan yang banyak disukai</p>
             </div>
 
-            <div className='grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid my-5 gap-5'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div>
+                  <div className='bg-white shadow-xl rounded-lg max-h-[475px] h-full'>
                     <div className='relative'>
-                      <img src={burger} alt="" className='bg-centers object-cover w-full' />
-                      <div className='flex items-center absolute top-2 left-2 gap-2'>
-                        <div className='bg-white p-2 rounded-full px-3 font-bold text-[#F17228]'>
-                          <p className='text-[14px]'>{item.price}</p>
-                        </div>
-                        <div className='bg-[#FFB20E] p-2 rounded-full px-4 font-bold text-white flex items-center gap-2'>
+                      <div className='p-2'>
+                        <img src={burger} alt="" className='bg-centers object-cover w-full' />
+                        <div className='flex items-center absolute top-4 left-4 gap-2'>
+                          <div className='bg-white p-2 rounded-full px-3 font-bold text-[#F17228]'>
+                            <p className='text-[10px] sm:text-[14px]'>{item.price}</p>
+                          </div>
+                          {/* <div className='bg-[#FFB20E] p-2 rounded-full px-4 font-bold text-white flex items-center gap-2'>
                           <img src={clock} alt="" />
                           <p className='text-[14px]'>Fast</p>
+                        </div> */}
                         </div>
                       </div>
-                      <div className='bg-white py-1 px-3 rounded-full flex items-center justify-center gap-3 absolute w-fit translate-x-16 -translate-y-14 max-sm:translate-x-24 max-lg:translate-x-10'>
+                      {/* <div className='bg-white py-1 px-3 rounded-full flex items-center justify-center gap-3 absolute w-fit translate-x-16 -translate-y-14 max-sm:translate-x-24 max-lg:translate-x-10'>
                         <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold'> - </button>
                         <p>0</p>
                         <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold'> + </button>
+                      </div> */}
+                    </div>
+                    <div className='p-3'>
+                      <div>
+                        <div className='flex items-center justify-between my-1'>
+                          <h1 className='text-sm md:text-xl font-bold'>{item.name}</h1>
+                          <h4 className='text-base font-medium'>4.5</h4>
+                        </div>
+                      <p className='text-justify text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
+                      </div>
+                      <div>
+                        <button className='w-full mt-3 bg-[#F17228] text-white font-medium p-1 rounded-[5px] shadow-md shadow-[#f1722858]'>Lihat Detail</button>
                       </div>
                     </div>
-                    <div className='flex items-center justify-between my-2'>
-                      <h1 className='text-xl font-bold'>{item.name}</h1>
-                      <h4 className='text-base font-medium'>4.5</h4>
-                    </div>
-                    <p className='text-justify text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
-                    <button className='w-full my-3 bg-[#F17228] text-white font-medium p-1 rounded-[5px] shadow-lg shadow-[#f1722858]'>Lihat Detail</button>
-                  </div>)
+                  </div>
+                )
               })}
             </div>
           </div>
@@ -258,15 +244,15 @@ function Pesanan() {
             return (
               <div className='h-fit w-3/4 m-auto my-8 shadow-xl shadow-[#ffb30e24] hover:shadow-[#ffb30e4b] transition-all hover:scale-105 duration-300'>
                 <div className='bg-white flex flex-col items-center sm:flex-row rounded-lg'>
-                  <div className='p-10 sm:p-14 order-2 sm:order-1'>
+                  <div className='py-5 px-3 sm:p-14 order-2 sm:order-1'>
                     <h1 className='text-3xl font-bold w-3/4'>Best deals <span className='text-[#FFB30E]'>Crispy Sandwiches</span></h1>
                     <p className='font-medium opacity-55 my-3'>Enjoy the large size of sandwiches. Complete
                       perfect slice of sandwiches.</p>
 
                     <button className='w-full bg-[#FFB30E] my-3 p-2 rounded-md text-white font-bold shadow-sm shadow-[#FFB30E]'>Proceed to order</button>
                   </div>
-                  <div className='shadow-xl order-1 sm:order-2'>
-                    <img src={item.img} alt="" className='h-full object-cover rounded-r-md' />
+                  <div className='order-1 sm:order-2'>
+                    <img src={item.img} alt="" className='h-full object-cover rounded-t-md' />
                   </div>
                 </div>
               </div>
@@ -274,16 +260,16 @@ function Pesanan() {
           } else {
             return (
               <div className='h-fit w-3/4 m-auto my-8 shadow-xl shadow-[#ffb30e24] hover:shadow-[#ffb30e4b] transition-all hover:scale-105 duration-300'>
-                <div className='bg-white flex rounded-lg'>
-                  <div className='shadow-xl'>
-                    <img src={item.img} alt="" className='h-full object-cover rounded-l-md' />
-                  </div>
-                  <div className='p-16'>
+                <div className='bg-white flex flex-col items-center sm:flex-row rounded-lg'>
+                  <div className='py-5 px-3 sm:p-14 order-1 sm:order-2'>
                     <h1 className='text-3xl font-bold w-3/4'>Best deals <span className='text-[#FFB30E]'>Crispy Sandwiches</span></h1>
                     <p className='font-medium opacity-55 my-3'>Enjoy the large size of sandwiches. Complete
                       perfect slice of sandwiches.</p>
 
-                    <button className='w-full bg-[#FFB30E] p-2 rounded-md text-white font-bold shadow-sm shadow-[#FFB30E]'>Proceed to order</button>
+                    <button className='w-full bg-[#FFB30E] my-3 p-2 rounded-md text-white font-bold shadow-sm shadow-[#FFB30E]'>Proceed to order</button>
+                  </div>
+                  <div className=''>
+                    <img src={item.img} alt="" className='h-full w-full object-cover rounded-t-md' />
                   </div>
                 </div>
               </div>

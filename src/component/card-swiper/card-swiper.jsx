@@ -97,31 +97,31 @@ export default function CardSwiper() {
             >
                 {dummy.map((item, index) => (
                     <SwiperSlide key={item.id} virtualIndex={index}>
-                        <div className='relative'>
-                            <img src={burger} alt="" className='bg-centers object-cover' />
-                            <div className='flex items-center absolute top-2 left-2 gap-2'>
-                                <div className='bg-white p-2 rounded-full px-3 font-bold text-[#F17228]'>
-                                    <p className='text-[14px]'>{item.price}</p>
-                                </div>
-                                <div className='bg-[#FFB20E] p-2 rounded-full px-4 font-bold text-white flex items-center gap-2'>
-                                    <img src={clock} alt="" />
-                                    <p className='text-[14px]'>Fast</p>
-                                </div>
-                            </div>
-                            <div className=' relative w-full'>
-                                <div className='absolute translate-x-20 -translate-y-14 bg-white py-1 px-3 rounded-full flex items-center justify-center gap-3 top-0'>
-                                    <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold'> - </button>
-                                    <p>0</p>
-                                    <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold'> + </button>
-                                </div>
-                            </div>
+               <div>
+                    <div className='relative'>
+                      <img src={burger} alt="" className='bg-centers object-cover w-full' />
+                      <div className='flex items-center absolute top-2 left-2 gap-2'>
+                        <div className='bg-white p-2 rounded-full px-3 font-bold text-[#F17228]'>
+                          <p className='text-[14px]'>{item.price}</p>
                         </div>
-                        <div className='flex items-center justify-between my-2'>
-                            <h1 className='text-xl font-bold'>{item.name}</h1>
-                            <h4 className='text-base font-medium'>4.5</h4>
+                        <div className='bg-[#FFB20E] p-2 rounded-full px-4 font-bold text-white flex items-center gap-2'>
+                          <img src={clock} alt="" />
+                          <p className='text-[14px]'>Fast</p>
                         </div>
-                        <p className='text-justify text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
-                        <button className='w-full my-3 bg-[#F17228] text-white font-medium p-1 rounded-[5px] shadow-md shadow-[#f1722858]'>Lihat Detail</button>
+                      </div>
+                      <div className='bg-white py-1 px-3 rounded-full flex items-center justify-center gap-3 absolute w-fit translate-x-16 -translate-y-14 max-sm:translate-x-24 max-lg:translate-x-10'>
+                        <button className='border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold'> - </button>
+                        <p>0</p>
+                        <button className='border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold'> + </button>
+                      </div>
+                    </div>
+                    <div className='flex items-center justify-between my-2'>
+                      <h1 className='text-xl font-bold'>{item.name}</h1>
+                      <h4 className='text-base font-medium'>4.5</h4>
+                    </div>
+                    <p className='text-justify text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
+                    <button className='w-full my-3 bg-[#F17228] text-white font-medium p-1 rounded-[5px] shadow-lg shadow-[#f1722858]'>Lihat Detail</button>
+                  </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
