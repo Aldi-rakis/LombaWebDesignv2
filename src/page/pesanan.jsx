@@ -382,10 +382,10 @@ function Pesanan() {
               <p>Makanan yang banyak disukai</p>
             </div>
 
-            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div className='bg-white shadow-xl rounded-lg max-h-[575px] h-full'>
+                  <div className='bg-white shadow-xl rounded-lg max-h-[675px] h-full'>
                     <div className='relative'>
                       <div className='p-2'>
                         <img src={burger} alt="" className='bg-centers object-cover w-full' />
@@ -398,18 +398,16 @@ function Pesanan() {
                       </div>
                     </div>
                     <div className='p-3'>
-                      <div className=''>
+                      <div className='max-h-[200px] h-[100px] sm:h-[120px]'>
                         <div className='flex items-center justify-between my-1'>
                           <h1 className="text-sm md:text-lg font-semibold truncate max-w-[65%]" title={item.name}>
                             {item.name || 'Unnamed Item'}
                           </h1>
                           <h4 className='text-sm font-medium'>Rp. {item.price}</h4>
                         </div>
-                      </div>
-                      <div>
                         <p className='text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
-                        <button className='w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]'>Lihat Detail</button>
                       </div>
+                        <button className='w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]'>Lihat Detail</button>
                     </div>
                   </div>
                 )
