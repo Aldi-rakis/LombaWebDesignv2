@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 import chatbot from '../component/chatbot'
-
+import Navbar from '../component/Navbar';
 
 import people from '../assets/people.png'
 import about from '../assets/about.png'
@@ -31,29 +31,7 @@ const Homepage = () => {
 
 
 <section id="home">
-      <nav className="flex justify-between items-center px-10 lg:px-[100px] fixed w-full z-50 bg-white shadow-xl">
-        {/* Logo */}
-        <p className="text-3xl text-[#FB9331] font-poppins font-bold">FoodCycle</p>
-
-        {/* Navigation Menu */}
-        <ul className="hidden lg:flex text-lg py-5 px-5 text-[#575757] font-poppins font-medium">
-          <li className="mx-3 section-link hover:font-bold" data-section="home">
-            <a href="#home">Home</a>
-          </li>
-          <li className="mx-3 section-link hover:font-bold" data-section="produk">
-            <a href="#produk">Produk</a>
-          </li>
-          <li className="mx-3 section-link hover:font-bold" data-section="mitra">
-            <a href="#mitra">Mitra</a>
-          </li>
-          <li className="mx-3 section-link hover:font-bold" data-section="hubungi">
-            <a href="#hubungi">Hubungi kami</a>
-          </li>
-        </ul>
-
-        {/* Sign-in Button */}
-        <button className="hidden lg:block bg-[#FB9333] text-white px-5 py-2 rounded-lg">Sign In</button>
-      </nav>
+     <Navbar />
 
       <header
         id="home"
@@ -371,7 +349,7 @@ const Homepage = () => {
               <img
                 src={playstore}
                 alt="Google Play"
-                className=" w-5 w-10"
+                className=" w-5 lg:w-10"
               />
               Get it on Google Play
             </a>
