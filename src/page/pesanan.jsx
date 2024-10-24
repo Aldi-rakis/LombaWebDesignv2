@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 
 import bgHome from '../assets/image/bg-home.png'
 import ramen from '../assets/image/ramen.png'
-import ads from '../assets/image/apps-ads.png'
 import Sandwich from '../assets/image/Crispy-Sandwich.png'
 import sate from '../assets/image/sate.png'
 import bgFooter from '../assets/image/bg-footer.png'
@@ -21,7 +21,6 @@ import cs from '../assets/cs.png'
 import quickdelivery from '../assets/quickdelivery.png'
 import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
-import ChatBot from '../component/chatbot';
 import phone from '../assets/phone.png'
 
 
@@ -30,14 +29,29 @@ function Pesanan() {
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([])
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isSuccessOrder, setIsSuccessOrder] = useState(false);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const qrCodeRef = useRef(null);
+
+  const generatePaymentInfo = () => {
+    return {
+      orderId: Math.random().toString(36).substr(2, 9),
+      amount: cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0),
+      customerName: name,
+      customerPhone: number,
+      items: cartItems.map(item => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      }))
+    };
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  console.log(cartItems)
 
   const dummy = [
     {
@@ -152,6 +166,18 @@ function Pesanan() {
     setIsConfirmOpen(false); // Tutup pop-up konfirmasi
   };
 
+
+  const handleOrder = () => {
+    if(cartItems.length > 0){
+      setIsSuccessOrder(true)
+      setIsConfirmOpen(false)
+    }
+  }
+
+  const cancelPayment = () => {
+    setIsSuccessOrder(false)
+  }
+
   return (
     <>
 
@@ -208,11 +234,11 @@ function Pesanan() {
                 <div className='h-60 overflow-y-auto'>
                   {
                     cartItems.map((item, index) => (
-                      <div className='mt-2 bg-[#F17228] border text-black p-3 rounded'>
+                      <div className='mt-2 border-[#F17228] border-2 text-black p-3 rounded'>
                         <div className='flex items-center justify-between'>
                           <div>
-                            <h1 className='font-semibold text-white'>{item.name}</h1>
-                            <h1 className='text-white'>{item.price * item.quantity}</h1>
+                            <h1 className='font-semibold text-[#F17228]'>{item.name}</h1>
+                            <h1 className='text-[#b35a27]'>{item.price * item.quantity}</h1>
                           </div>
 
                           <div className='bg-white py-1 px-3 rounded-full flex items-center gap-2'>
@@ -252,7 +278,7 @@ function Pesanan() {
               <button className=" text-red-600 font-semibold px-4 py-2 rounded-md w-full" onClick={handleCloseConfirm}>
                 Batalkan Pesanan
               </button>
-              <button className="bg-[#F17228] hover:bg-[#ca6022] transition-all text-white font-semibold px-4 py-2 rounded-md w-full">
+              <button onClick={handleOrder} className="bg-[#F17228] hover:bg-[#ca6022] transition-all text-white font-semibold px-4 py-2 rounded-md w-full">
                 Pesan Sekarang
               </button>
             </div>
@@ -260,6 +286,46 @@ function Pesanan() {
         </div>
       )}
 
+      {/* Pop-up qrcode */}
+      {isSuccessOrder && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 transition-all m-3">
+          <div className="fixed inset-0 bg-black bg-opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
+            <h2 className="text-xl font-medium mb-4">Payment Gateway</h2>
+            <div className='text-center'>
+              <h1 className="mb-4">Silahkan Scan QR Code Dibawah Ini Untuk Melakukan Pembayaran</h1>
+              <div className="flex justify-center mb-4">
+                <div className="border-2 border-[#F17228] rounded-lg p-4">
+                  <QRCodeSVG
+                    value={JSON.stringify(generatePaymentInfo())}
+                    size={256}
+                    level="H"
+                    includeMargin={true}
+                    fgColor="#F17228"
+                  />
+                </div>
+              </div>
+              <div className="text-left bg-gray-50 p-4 rounded-lg mb-4">
+                <p className="font-medium text-gray-700 mb-2">Total Pembayaran:</p>
+                <p className="text-2xl font-bold text-[#F17228]">
+                  Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toLocaleString()}
+                </p>
+              </div>
+              <p className="text-sm text-gray-500">
+                QR Code akan kadaluarsa dalam 15 menit
+              </p>
+            </div>
+            <div className="mt-4 flex justify-end items-center gap-3 w-full">
+              <button
+                onClick={cancelPayment}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full transition-colors"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {
         cartItems.length > 0 && (
