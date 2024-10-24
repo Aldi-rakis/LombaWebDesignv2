@@ -43,7 +43,7 @@ const GeminiChatBot = () => {
   };
 
   return (
-    <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '20px', justifyContent: 'center' }}>
+    <div style={{ padding: '20px', display: 'flex', flexDirection: 'row', gap: '20px', justifyContent: 'center' }}>
       {/* Input Pertanyaan */}
       <div style={cardStyle}>
         <h3>Masukkan Pertanyaan</h3>
