@@ -367,7 +367,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </section>
+</section>
 
   <ChatBot />
 

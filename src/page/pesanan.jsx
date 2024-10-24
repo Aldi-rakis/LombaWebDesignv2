@@ -9,15 +9,21 @@ import bgFooter from '../assets/image/bg-footer.png'
 import pizza from '../assets/image/pizza.png'
 import bike from '../assets/icon/bike.png'
 import bag from '../assets/icon/bag.png'
+import search from '../assets/icon/icon.png'
 import location from '../assets/icon/location.png'
 import bell from '../assets/icon/bell.png'
 import pay from '../assets/icon/pay.png'
 import next from '../assets/icon/next.png'
 import donut from '../assets/icon/donut.png'
-import clock from '../assets/icon/clock.png'
 import burger from '../assets/image/burger.png'
-import CardSwiper from '../component/card-swiper/card-swiper'
-import Popup from 'reactjs-popup';
+import discount from '../assets/discount.png'
+import cs from '../assets/cs.png'
+import quickdelivery from '../assets/quickdelivery.png'
+import apple from '../assets/Apple_logo.png'
+import playstore from '../assets/playstore.png'
+import ChatBot from '../component/chatbot';
+import phone from '../assets/phone.png'
+
 
 function Pesanan() {
 
@@ -185,23 +191,6 @@ function Pesanan() {
 
       {/* Pop-up Konfirmasi */}
       {isConfirmOpen && (
-        // <Popup open={isConfirmOpen} onClose={handleCloseConfirm}>
-        //   <div className="modal">
-        //     <h2 className="text-xl font-medium">Detail Pemesanan</h2>
-        //     <p>Nama: {name}</p>
-        //     <p>No Pemesan: {number}</p>
-        //     <p>Produk yang dibeli:</p>
-        //     <ul>
-        //       {cartItems.map(item => (
-        //         <li key={item.id}>{item.name} - {item.quantity} x Rp. {item.price}</li>
-        //       ))}
-        //     </ul>
-        //     <p>Total Harga: Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}</p>
-        //     <button onClick={handleCloseConfirm} className="bg-red-500 text-white px-4 py-2 rounded-md">
-        //       Close
-        //     </button>
-        //   </div>
-        // </Popup>
         <div className="fixed inset-0 flex items-center justify-center z-50 transition-all m-3">
           <div className="fixed inset-0 bg-black bg-opacity-75"></div>
           <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
@@ -219,11 +208,11 @@ function Pesanan() {
                 <div className='h-60 overflow-y-auto'>
                   {
                     cartItems.map((item, index) => (
-                      <div className='mt-2 bg-[#F17228] text-white p-3 rounded'>
+                      <div className='mt-2 bg-[#F17228] border text-black p-3 rounded'>
                         <div className='flex items-center justify-between'>
                           <div>
-                            <h1 className='font-semibold'>{item.name}</h1>
-                            <h1>{item.price * item.quantity}</h1>
+                            <h1 className='font-semibold text-white'>{item.name}</h1>
+                            <h1 className='text-white'>{item.price * item.quantity}</h1>
                           </div>
 
                           <div className='bg-white py-1 px-3 rounded-full flex items-center gap-2'>
@@ -263,7 +252,7 @@ function Pesanan() {
               <button className=" text-red-600 font-semibold px-4 py-2 rounded-md w-full" onClick={handleCloseConfirm}>
                 Batalkan Pesanan
               </button>
-              <button className="bg-[#F17228] text-white font-semibold px-4 py-2 rounded-md w-full">
+              <button className="bg-[#F17228] hover:bg-[#ca6022] transition-all text-white font-semibold px-4 py-2 rounded-md w-full">
                 Pesan Sekarang
               </button>
             </div>
@@ -300,24 +289,24 @@ function Pesanan() {
               <div className='flex gap-5 items-center'>
                 <div className='bg-[#f1722846] rounded-[8px] flex items-center p-2 px-4 gap-2'>
                   <img src={bike} alt="ramen" />
-                  <h2 className='text-[#F17228] font-bold'>Delivery</h2>
+                  <h2 className='text-[#F17228] font-medium'>Delivery</h2>
                 </div>
 
                 <div className='hover:bg-[#f1722846] transition-all rounded-[8px] flex items-center p-2 px-4 gap-2'>
                   <img src={bag} alt="ramen" />
-                  <h2 className='opacity-50 font-bold'>Pickup</h2>
+                  <h2 className='opacity-50 font-medium'>Pickup</h2>
                 </div>
               </div>
               <hr className='my-5' />
 
-              <div className='w-full flex flex-col justify-around gap-2'>
+              <div className='w-full flex flex-col sm:flex-row justify-around gap-2'>
                 <form action="" className='bg-slate-100 p-2 flex items-center px-4 w-full'>
                   <img src={bag} alt="ramen" />
                   <input type="text" name="" id="" className='bg-transparent outline-none px-2' placeholder='Enter Your Address' />
                 </form>
                 <button className='flex w-1/2 bg-gradient-to-r from-[#FF7A7A] to-[#F65900] items-center px-3 py-2 rounded-md justify-center gap-3 text-center'>
-                  <img src={bag} alt="ramen" className='brightness-150' />
-                  <h2 className='text-white font-bold'>Find Food</h2>
+                  <img src={search} alt="ramen" className='brightness-150' />
+                  <h2 className='text-white font-medium'>Find Food</h2>
                 </button>
               </div>
             </div>
@@ -372,7 +361,63 @@ function Pesanan() {
               <h1 className='text-2xl font-bold'>Popular items</h1>
               <p>Makanan yang sering dibeli</p>
             </div>
-            <CardSwiper />
+            <div className="w-full">
+              <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth">
+                <div className="flex gap-4 pb-4 min-w-min">
+                  {dummy.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-[240px] snap-start bg-white shadow-lg rounded-lg max-h-[675px]"
+                    >
+                      <div className="relative">
+                        <div className="p-2">
+                          <img
+                            src={burger}
+                            alt=""
+                            className="w-full h-[200px] object-cover rounded-lg"
+                          />
+                        </div>
+                        <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2">
+                          <button
+                            className="border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold"
+                            onClick={() => removeProduct(item)}
+                          >
+                            -
+                          </button>
+                          <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
+                          <button
+                            className="border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold"
+                            onClick={() => addProduct(item)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-3">
+                        <div className="h-[100px] sm:h-[120px]">
+                          <div className="flex items-center justify-between my-1">
+                            <h1
+                              className="text-sm md:text-lg font-semibold truncate max-w-[65%]"
+                              title={item.name}
+                            >
+                              {item.name || 'Unnamed Item'}
+                            </h1>
+                            <h4 className="text-sm font-medium">Rp. {item.price}</h4>
+                          </div>
+                          <p className="text-justify mb-2 text-[14px] font-medium opacity-55">
+                            The salad is fresh!!! Don't ask about the sauce again, it's really delicious
+                          </p>
+                        </div>
+                        <button className="w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]">
+                          Lihat Detail
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
 
 
@@ -418,8 +463,99 @@ function Pesanan() {
       </section>
 
       {/* Section 3 */}
-      <section className='h-fit bg-center bg-contain bg-no-repeat' >
-        <img src={ads} alt="" />
+      <section id='service' className='bg-[#FEEFD0] flex justify-center items-center'>
+        <div className='bg-white p-5 lg:px-10 rounded-[20px] my-10 lg:my-20 mx-5 lg:mx-[100px] flex flex-col lg:flex-row w-full gap-8 lg:gap-16'>
+          <div className='w-full lg:w-1/3 flex flex-col lg:flex-row items-center justify-center mb-5 lg:mb-0'>
+            <img className='w-16 lg:w-auto' src={discount} alt="Discount Icon" />
+            <p
+              className="text-[24px] lg:text-[35px] font-semibold text-start mt-2 lg:mt-4"
+              style={{
+                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Daily Discounts
+            </p>
+          </div>
+
+          <div className='w-full lg:w-1/3 flex flex-col lg:flex-row  items-center justify-center mb-5 lg:mb-0'>
+            <img className='w-16 lg:w-auto' src={cs} alt="Customer Support Icon" />
+            <p
+              className="text-[24px] lg:text-[35px] font-semibold text-center mt-2 lg:mt-4"
+              style={{
+                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              24/7 Customer Support
+            </p>
+          </div>
+
+          <div className='w-full lg:w-1/3 flex flex-col lg:flex-row  items-center justify-center'>
+            <img className='w-16 lg:w-auto' src={quickdelivery} alt="Quick Delivery Icon" />
+            <p
+              className="text-[24px] lg:text-[35px] font-semibold text-start mt-2 lg:mt-4"
+              style={{
+                background: 'linear-gradient(to right, #FB3C00, #FFB800)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Quick Delivery
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-b from-[#FEEFD0] to-[#FEE298] py-5 lg:py-5 flex justify-center items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-10 w-full max-w-7xl px-5">
+          {/* Phone Mockups */}
+          <div className="flex w-2/3 justify-center items-center gap-5">
+
+            <img
+              src={phone}
+              alt="Phone Mockup 2"
+              className="w-[200px] md:w-[300px] lg:w-[600px]"
+            />
+          </div>
+
+          {/* Text and Buttons Section */}
+          <div className="text-center lg:text-left">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#FFB800] mb-4">
+              Install the app
+            </h2>
+            <p className="text-gray-600 text-sm lg:text-base mb-6 max-w-md">
+              It's never been easier to order food. Look for the finest discounts
+              and you'll be lost in a world of delectable food.
+            </p>
+            <div className="flex justify-center lg:justify-start gap-2">
+              <a
+                href="#"
+                className="bg-[#ffffff] text-[12px] text-black px-2 py-2 lg:text-[16px] lg:px-4 lg:py-4 rounded-md flex items-center gap-2 hover:bg-[#dfdede]"
+              >
+                <img
+                  src={playstore}
+                  alt="Google Play"
+                  className=" w-5 lg:w-10"
+                />
+                Get it on Google Play
+              </a>
+              <a
+                href="#"
+                className="bg-[#ffffff] text-[12px] text-black px-2 py-1 lg:text-[16px] lg:px-4 lg:py-4  rounded-md flex items-center gap-2 hover:bg-[#dfdede]"
+              >
+                <img
+                  src={apple}
+                  alt="App Store"
+                  className=" w-5 lg:w-10"
+                />
+                Download on the App Store
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Section 4 */}
