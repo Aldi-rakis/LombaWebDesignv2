@@ -7,14 +7,22 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useLocation } from "react-router-dom"; // Tambahkan ini
 
 // Komponen untuk item navigasi
-const NavItem = ({ label }) => (
-  <a href="#" className="hover:text-blue-500 transition-colors">
+const NavItem = ({ label, href, isActive }) => (
+  <a
+    href={href}
+    className={`transition-colors ${
+      isActive ? "text-[#945a23]" : "text-[#FB9333]"
+    }`}
+  >
     <Typography
       as="li"
       color="blue-gray"
-      className="p-1 text-lg text-[#FB9333] hover:text-[#f3a760] font-medium" // Mengubah ukuran font menjadi lebih besar (text-2xl)
+      className={`p-1 text-lg hover:text-[#f3a760] font-medium ${
+        isActive ? "text-[#945a23]" : "text-[#FB9333]"
+      }`}
     >
       {label}
     </Typography>
@@ -22,13 +30,26 @@ const NavItem = ({ label }) => (
 );
 
 // Komponen untuk daftar navigasi
-const NavList = () => (
-  <ul className="mt-2 flex flex-col gap-3 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
-    {["About Us", "Pricing", "Contact Us"].map((label) => (
-      <NavItem key={label} label={label} />
-    ))}
-  </ul>
-);
+const NavList = () => {
+  const location = useLocation(); // Dapatkan route aktif saat ini
+
+  return (
+    <ul className="mt-2 flex flex-col gap-3 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
+      {[
+        { label: "Home", href: "/" },
+        { label: "Order", href: "/pesan" },
+        { label: "Contact Us", href: "/contact-us" },
+      ].map((navItem) => (
+        <NavItem
+          key={navItem.label}
+          label={navItem.label}
+          href={navItem.href}
+          isActive={location.pathname === navItem.href} // Cek apakah ini route yang aktif
+        />
+      ))}
+    </ul>
+  );
+};
 
 // Komponen Navbar utama
 const NavbarWithSimpleLinks = () => {
@@ -50,17 +71,16 @@ const NavbarWithSimpleLinks = () => {
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
-          href="#"
+          href="/"
           color="blue-gray"
           className="text-[#FB9333] ml-4 cursor-pointer text-2xl font-bold hover:text-[#ffa654] transition-colors"
         >
-          Food <span className="text-green-700">Cycle </span>
+          Food <span className="text-green-700">Cycle</span>
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
         <Button
-         
           className="bg-[#FB9333] hidden lg:inline-block hover:bg-[#c88342] hover:text-white transition-colors"
         >
           Sign in

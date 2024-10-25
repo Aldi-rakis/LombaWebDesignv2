@@ -23,6 +23,7 @@ import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
 import ChatBot from '../component/chatbot';
 import phone from '../assets/phone.png'
+import Navbar from '../component/Navbar';
 
 
 function Pesanan() {
@@ -154,6 +155,7 @@ function Pesanan() {
 
   return (
     <>
+    {/* <Navbar /> */}
 
       {/* Modal Form */}
       {isOpen && (
@@ -302,7 +304,7 @@ function Pesanan() {
               <div className='w-full flex flex-col sm:flex-row justify-around gap-2'>
                 <form action="" className='bg-slate-100 p-2 flex items-center px-4 w-full'>
                   <img src={bag} alt="ramen" />
-                  <input type="text" name="" id="" className='bg-transparent outline-none px-2' placeholder='Enter Your Address' />
+                  <input type="text" name="" id="" className='bg-transparent border-slate-400 rounded-md ml-2 outline- px-2' placeholder='Enter Your Address' />
                 </form>
                 <button className='flex w-1/2 bg-gradient-to-r from-[#FF7A7A] to-[#F65900] items-center px-3 py-2 rounded-md justify-center gap-3 text-center'>
                   <img src={search} alt="ramen" className='brightness-150' />

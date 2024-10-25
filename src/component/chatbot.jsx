@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-
+// import AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -163,6 +165,10 @@ const ChatBot = () => {
     };
   }, []);
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <button
@@ -172,7 +178,8 @@ const ChatBot = () => {
         💬
       </button>
 
-      <div
+      <div 
+     
         ref={chatBoxRef}
         className={`${
           isOpen ? 'block' : 'hidden'
@@ -188,7 +195,7 @@ const ChatBot = () => {
           </button>
         </div>
 
-        <div className="text-[14px] p-4 h-64 flex flex-col overflow-y-auto">
+        <div  className="text-[14px] p-4 h-64 flex flex-col overflow-y-auto">
           {messages.map((message, index) => (
             <div
               key={index}
