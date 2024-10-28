@@ -10,6 +10,7 @@ import Home from '../page/Homepage';
 
 import Pesanan from "../page/pesanan";
 import GeminiAIComponent from "../page/Gemini";
+import NotFound from "../page/NotFound";
 
 function RoutesIndex() {
     return (
@@ -23,6 +24,8 @@ function RoutesIndex() {
              <Route path="/pesan" element={<Pesanan />} />
 
              <Route path="/ai" element={<GeminiAIComponent />} />
+
+             <Route path="*" element={<NotFound />} />
 
 
         </Routes>
