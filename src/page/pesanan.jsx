@@ -31,14 +31,13 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom'
 
 
-function Pesanan() {
+function Pesanan({ addProduct , removeProduct, cartItems}) {
 
   useEffect(() => {
     AOS.init();
   }, [])
 
   const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([])
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   const [isSuccessOrder, setIsSuccessOrder] = useState(false);
   const [name, setName] = useState('');
@@ -130,33 +129,7 @@ function Pesanan() {
     },
   ]
 
-  const addProduct = (item) => {
-    const existingProduct = cartItems.find(cartItem => cartItem.id === item.id)
 
-    if (existingProduct) {
-      setCartItems(cartItems.map(cartItem =>
-        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      ))
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
-    }
-  }
-
-  const removeProduct = (item) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
-
-    if (existingItem) {
-      if (existingItem.quantity > 1) {
-        setCartItems(cartItems.map(cartItem =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem
-        ));
-      } else {
-        setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
-      }
-    }
-  };
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
