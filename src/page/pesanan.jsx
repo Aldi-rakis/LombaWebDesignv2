@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import bgHome from '../assets/image/bg-home.png'
 import ramen from '../assets/image/ramen.png'
@@ -21,12 +21,21 @@ import cs from '../assets/cs.png'
 import quickdelivery from '../assets/quickdelivery.png'
 import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
-import ChatBot from '../component/chatbot';
 import phone from '../assets/phone.png'
-import Navbar from '../component/Navbar';
+
+import dummy from '../data'
+
+// import AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom'
 
 
 function Pesanan() {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([])
@@ -39,51 +48,6 @@ function Pesanan() {
   };
 
   console.log(cartItems)
-
-  const dummy = [
-    {
-      id: 1,
-      name: "Cheese Burger",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 2,
-      name: "Toffe’s Cake",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 3,
-      name: "Dancake",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 4,
-      name: "Crispy Sandwitch",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 5,
-      name: "Thai Soup",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 6,
-      name: "Cheese Burger",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-    {
-      id: 7,
-      name: "Cheese Burger",
-      price: 10000,
-      desc: "The salad is fresh!!! Don't ask about the sauce again, it's really delicious, "
-    },
-  ]
 
   const dummy2 = [
     {
@@ -155,7 +119,7 @@ function Pesanan() {
 
   return (
     <>
-    {/* <Navbar /> */}
+      {/* <Navbar /> */}
 
       {/* Modal Form */}
       {isOpen && (
@@ -283,7 +247,8 @@ function Pesanan() {
         style={{ backgroundImage: `url(${bgHome})` }}>
         <div className=' h-fit m-auto w-full sm:w-[90%] flex flex-col sm:flex-row pt-32 pb-10 items-center justify-around gap-0 sm:gap-28'>
           {/* left */}
-          <div className='w-3/5 max-lg:w-[90%]'>
+          <div className='w-3/5 max-lg:w-[90%]' data-aos="fade-up"
+            data-aos-duration="1000">
             <h1 className='text-white text-6xl font-bold'>Are you starving ?</h1>
             <p className='font-medium opacity-55 my-2'>Within a few clicks, find meals that are accessible near you</p>
 
@@ -315,7 +280,9 @@ function Pesanan() {
           </div>
 
           {/* Right */}
-          <div className='drop-shadow-2xl w-2/5 max-lg:w-2/4'>
+          <div className='drop-shadow-2xl w-2/5 max-lg:w-2/4' data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="800">
             <img src={ramen} alt="" className='brightness-125 drop-shadow-2xl' />
           </div>
 
@@ -327,28 +294,40 @@ function Pesanan() {
         <div className=' h-fit'>
           <h1 className='text-3xl font-bold text-[#F17228] text-center'>How does it work</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-3/4 m-auto justify-center gap-8 my-14'>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="100"
+            >
               <img src={location} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Location</h2>
                 <p className='opacity-45'>Choose the location where your food will be delivered.</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="400"
+            >
               <img src={bell} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Choose order</h2>
                 <p className='opacity-45'>Check over hundreds of menus to pick your favorite food</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="700"
+            >
               <img src={pay} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Pay advanced</h2>
                 <p className='opacity-45'>It's quick, safe, and simple. Select several methods of payment</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="1000"
+            >
               <img src={donut} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Enjoy meals</h2>
@@ -364,12 +343,14 @@ function Pesanan() {
               <p>Makanan yang sering dibeli</p>
             </div>
             <div className="w-full">
-              <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth">
+              <div className="overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth">
                 <div className="flex gap-4 pb-4 min-w-min">
                   {dummy.map((item, index) => (
                     <div
                       key={index}
                       className="flex-shrink-0 w-[240px] snap-start bg-white shadow-lg rounded-lg max-h-[675px]"
+                      data-aos="fade-up"
+                      data-aos-duration={`${400 + index * 300}`}
                     >
                       <div className="relative">
                         <div className="p-2">
@@ -432,7 +413,9 @@ function Pesanan() {
             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div className='bg-white shadow-xl rounded-lg max-h-[675px] h-full'>
+                  <div className='bg-white shadow-xl rounded-lg max-h-[675px] h-full'
+                    data-aos="fade-up"
+                    data-aos-duration={`${400 + index * 100}`}>
                     <div className='relative'>
                       <div className='p-2'>
                         <img src={burger} alt="" className='bg-centers object-cover w-full' />
@@ -454,7 +437,9 @@ function Pesanan() {
                         </div>
                         <p className='text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
                       </div>
+                      <Link to={`/detail/${item.id}`}>
                         <button className='w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]'>Lihat Detail</button>
+                      </Link>
                     </div>
                   </div>
                 )
