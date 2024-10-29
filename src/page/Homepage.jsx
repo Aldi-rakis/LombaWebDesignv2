@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState,useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+
+// import AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // import './styles.css';
 import { Pagination } from 'swiper/modules';
@@ -26,12 +30,18 @@ import playstore from '../assets/playstore.png'
 import ChatBot from '../component/chatbot';
 
 const Homepage = () => {
+
+ useEffect(() => {
+    AOS.init();
+  }, [] )
+ 
+
   return (
     <div>
 
 
 <section id="home">
-     <Navbar />
+
 
       <header
         id="home"
@@ -99,7 +109,8 @@ const Homepage = () => {
     </section>
 
       <section id='about'>
-  <div className='bg-[#fff] my-[50px] md:my-[100px] py-5 md:py-[20px]'>
+  <div  data-aos="fade-down"
+          data-aos-duration="1000" className='bg-[#fff] my-[50px] md:my-[100px] py-5 md:py-[20px]'>
     <div className="card bg-[#fff] mx-4 md:mx-20 shadow-[0_14px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] rounded-[20px] md:rounded-[50px] transition-shadow duration-300 hover:shadow-[0_20px_30px_rgba(151,109,0,0.3),_0_4px_6px_rgba(255,255,255,0.3)]">
       <p className="text-xl md:text-2xl font-bold text-center p-4">Welcome to FoodCycle!</p>
 
@@ -149,7 +160,8 @@ const Homepage = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 px-2 md:px-[5px] items-center mt-5 md:mt-10'>
         
         {/* Card 1 */}
-        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        <div data-aos="flip-left" data-aos-duration="1000"
+         className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
         hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
         transform hover:scale-105 transition-all duration-300'>
           <div>
@@ -165,7 +177,8 @@ const Homepage = () => {
         </div>
 
         {/* Card 2 */}
-        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        <div data-aos="flip-left"  data-aos-duration="1000"
+         className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
         hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
         transform hover:scale-110 transition-all duration-300'>
           <div>
@@ -181,7 +194,7 @@ const Homepage = () => {
         </div>
 
         {/* Card 3 */}
-        <div className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
+        <div data-aos="flip-left" data-aos-duration="1000"  className='bg-[#fff] rounded-[10px] p-4 md:p-5 h-auto w-full sm:w-[300px] md:w-[350px] mx-auto flex flex-col justify-between shadow-[0_10px_20px_rgba(151,109,0,0.2),_0_2px_4px_rgba(255,255,255,0.2)] 
         hover:shadow-[0_20px_40px_rgba(151,109,0,0.4),_0_4px_8px_rgba(255,255,255,0.2)] 
         transform hover:scale-105 transition-all duration-300'>
           <div>
@@ -200,12 +213,111 @@ const Homepage = () => {
     </div>
 
   </div>
-</section>
+</section> 
+
+<section id='berita' className="container mx-auto px-4 py-6 lg:px-[100px] ">
+      <div data-aos="fade-left"
+     data-aos-duration="1000"
+   className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {/* Card 1 */}
+        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+            <img
+              src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+              alt="card-image"
+            />
+          </div>
+          <div className="p-4 flex-grow">
+            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
+              Website Review Check
+            </h6>
+            <p className="text-slate-600 leading-normal font-light">
+              The place is close to Barcelonloeta l by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+            </p>
+          </div>
+          <div className="px-4 pb-4 mt-auto">
+            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+              Read more
+            </button>
+          </div>
+        </div>
+
+        {/* Card 2 */}
+        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+            <img
+              src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="card-image"
+            />
+          </div>
+          <div className="p-4 flex-grow">
+            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
+              Travel Destination
+            </h6>
+            <p className="text-slate-600 leading-normal font-light">
+              Explore the beautiful beaches and historic landmarks that make this place a must-visit destination.
+            </p>
+          </div>
+          <div className="px-4 pb-4 mt-auto">
+            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#ffa047]">
+              Read more
+            </button>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="card-image"
+            />
+          </div>
+          <div className="p-4 flex-grow">
+            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
+              Adventure Awaits
+            </h6>
+            <p className="text-slate-600 leading-normal font-light">
+              Whether you're a thrill-seeker or just looking to relax, this destination offers something for everyone.
+            </p>
+          </div>
+          <div className="px-4 pb-4 mt-auto">
+            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+              Read more
+            </button>
+          </div>
+        </div>
+
+        {/* Card 4 */}
+        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="card-image"
+            />
+          </div>
+          <div className="p-4 flex-grow">
+            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
+              City Lights and Nightlife
+            </h6>
+            <p className="text-slate-600 leading-normal font-light">
+              Experience the vibrant nightlife and iconic skyline of this bustling city.
+            </p>
+          </div>
+          <div className="px-4 pb-4 mt-auto">
+            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+              Read more
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 <section id='Testimonial' className='bg-[#FFF2E1] justify-center items-center'>
   <div className='flex flex-col lg:flex-row justify-center items-center mx-5 lg:mx-[100px] mt-[50px] lg:mt-[100px]'>
-    <div className='w-full lg:w-1/3 justify-center text-center lg:text-left mb-1 lg:mb-0'>
+    <div data-aos="fade-up"
+     className='w-full lg:w-1/3 justify-center text-center lg:text-left mb-1 lg:mb-0'>
       <p className='text-[#333333] mt-2 leading-8 lg:leading-normal text-[26px] lg:text-[48px] font-semibold'>
         What Are People Saying About Us
       </p>
@@ -214,7 +326,9 @@ const Homepage = () => {
       </p>
     </div>
 
-    <div className='w-3/4 lg:w-2/3 py-5 lg:py-10'>
+    <div data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine" className='w-3/4 lg:w-2/3 py-5 lg:py-10'>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -241,7 +355,7 @@ const Homepage = () => {
           },
         }}
       >
-        <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center'>
+        <SwiperSlide className='rounded-[10px] bg-white p-5 flex flex-col items-center'>
           <div className='w-16 lg:w-20 mb-5'>
             <img className='rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
           </div>
@@ -253,7 +367,19 @@ const Homepage = () => {
           </div>
         </SwiperSlide>
 
-        <SwiperSlide className='rounded-[10px] bg-black p-5 flex flex-col items-center'>
+        <SwiperSlide className='rounded-[10px] bg-white p-5 flex flex-col items-center'>
+          <div className='w-16 lg:w-20 mb-5'>
+            <img className='rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
+          </div>
+          <div className='h-[150px] flex flex-col items-center rounded-[10px]'>
+            <p className='text-[16px] lg:text-[18px] font-semibold'>Selena Gomez</p>
+            <p className='mt-2 text-[12px] lg:text-[14px] text-center'>
+              The salad is fresh!!! Don't ask about the sauce again, it's really delicious, it's going to be routine. I recommend this salad to all of you guys! because they really take care of the quality.
+            </p>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className='rounded-[10px] bg-white p-5 flex flex-col items-center'>
           <div className='w-16 lg:w-20 mb-5'>
             <img className='rounded-full' src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="" />
           </div>
@@ -373,7 +499,7 @@ const Homepage = () => {
 
 
     
-    <footer className="bg-gray-900 text-gray-400 py-10 px-6 lg:px-20">
+  <footer className="bg-gray-900 text-gray-400 py-10 px-6 lg:px-20">
       {/* Top Cities Section */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         <div>

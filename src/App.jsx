@@ -7,15 +7,23 @@ import './App.css'
 
 //import routes
 import Routes from './routes/Routes';
+import NavbarWithSimpleLinks from './component/Navbar'
 
 
 
 function App() {
 
   return (
+    
     <div className="App">
 
-     <Routes />
+      <NavbarWithSimpleLinks />
+
+     <Routes 
+   
+      
+      
+     />
       
     </div>
   )
