@@ -51,7 +51,7 @@ const DetailPage = ({ addProduct, removeProduct, cartItems }) => {
 
     return (
         <>
-            <section className='grid grid-cols-1 lg:grid-cols-2 gap-3 px-10 pt-14 lg:max-h-[527px] mb-32 sm:mb-5'>
+            <section className='grid grid-cols-1 lg:grid-cols-2 gap-3 px-10 pt-24 lg:max-h-[527px] mb-32 sm:mb-5'>
                 <div className='h-full lg:h-1/2'>
                     <Swiper
                         style={{
@@ -151,7 +151,7 @@ const DetailPage = ({ addProduct, removeProduct, cartItems }) => {
                         <div className="h-full mt-2 mb-1">
                             <div className="w-full h-full overflow-x-auto flex items-center space-x-3 py-3snap-x snap-mandatory scroll-smooth">
                                 {item.testimonials && item.testimonials.map((testimonial, index) => (
-                                    <div key={index} className="bg-red-400 shadow-xl h-[20vh] w-40 flex-shrink-0 p-2 rounded-lg text-white">
+                                    <div key={index} className="bg-orange-500 shadow-xl h-[20vh] w-40 flex-shrink-0 p-2 rounded-lg text-white">
                                         <p className="font-semibold text-sm">{testimonial.user}</p>
                                         <div className='flex'>{ratingStars}</div>
                                         <p className="text-xs mt-1 py-3">{testimonial.comment}</p>
@@ -192,7 +192,7 @@ const DetailPage = ({ addProduct, removeProduct, cartItems }) => {
             </section>
 
 
-            <div className='px-10 pb-10'>
+            <div className='px-10 pb-10 pt-5'>
                 <h1 className='text-xl font-bold'>Lokasi Warung</h1>
                 <MapContainer center={[-6.1751, 106.8650]} zoom={13} className="w-full h-96 mt-4 rounded-md shadow-md">
                     <TileLayer

@@ -221,7 +221,7 @@ const Homepage = () => {
 
 <section id='berita' className="container mx-auto px-4 py-6 lg:px-[100px] ">
   <div
-    data-aos="fade-left"
+    data-aos="fade-up"
     data-aos-duration="1000"
     className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
   >
@@ -329,7 +329,7 @@ const Homepage = () => {
       </p>
     </div>
 
-    <div data-aos="fade-left"
+    <div data-aos="fade-down"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine" className='w-3/4 lg:w-2/3 py-5 lg:py-10'>
       <Swiper
