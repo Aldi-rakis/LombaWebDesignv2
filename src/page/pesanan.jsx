@@ -4,6 +4,7 @@ import { QRCodeSVG } from 'qrcode.react'
 import bgHome from '../assets/image/bg-home.png'
 import ramen from '../assets/image/ramen.png'
 import Sandwich from '../assets/image/Crispy-Sandwich.png'
+import Done from '../assets/icon/done.gif'
 import sate from '../assets/image/sate.png'
 import bgFooter from '../assets/image/bg-footer.png'
 import pizza from '../assets/image/pizza.png'
@@ -31,7 +32,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom'
 
 
-function Pesanan({ addProduct, removeProduct, cartItems }) {
+function Pesanan({ addProduct, removeProduct, cartItems, setCartItems }) {
 
   useEffect(() => {
     AOS.init();
@@ -42,6 +43,8 @@ function Pesanan({ addProduct, removeProduct, cartItems }) {
   const [isSuccessOrder, setIsSuccessOrder] = useState(false);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [showQRCode, setShowQRCode] = useState(false);
+
 
   const qrCodeRef = useRef(null);
 
@@ -153,8 +156,12 @@ function Pesanan({ addProduct, removeProduct, cartItems }) {
 
   const handleOrder = () => {
     if (cartItems.length > 0) {
+      setShowQRCode(true)
       setIsSuccessOrder(true)
       setIsConfirmOpen(false)
+      setTimeout(() => {
+        setShowQRCode(false)
+      }, 2000);
     }
   }
 
@@ -280,15 +287,23 @@ function Pesanan({ addProduct, removeProduct, cartItems }) {
             <div className='text-center'>
               <h1 className="mb-4">Silahkan Scan QR Code Dibawah Ini Untuk Melakukan Pembayaran</h1>
               <div className="flex justify-center mb-4">
-                <div className="border-2 border-[#F17228] rounded-lg p-4">
-                  <QRCodeSVG
-                    value={JSON.stringify(generatePaymentInfo())}
-                    size={256}
-                    level="H"
-                    includeMargin={true}
-                    fgColor="#F17228"
-                  />
-                </div>
+
+                {showQRCode ? (
+                  <div className="border-2 border-[#F17228] rounded-lg p-4">
+                    <QRCodeSVG
+                      value={JSON.stringify(generatePaymentInfo())}
+                      size={256}
+                      level="H"
+                      includeMargin={true}
+                      fgColor="#F17228"
+                    />
+                  </div>
+                )
+                  : (
+                    <div className="rounded-lg p-4">
+                      <img src={Done} alt="Done" className="w-64 h-64 object-contain" />
+                    </div>
+                  )}
               </div>
               <div className="text-left bg-gray-50 p-4 rounded-lg mb-4">
                 <p className="font-medium text-gray-700 mb-2">Total Pembayaran:</p>
@@ -511,7 +526,7 @@ function Pesanan({ addProduct, removeProduct, cartItems }) {
             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div  data-aos="fade-up"
+                  <div data-aos="fade-up"
                     data-aos-duration={400}>
                     <div
                       className="group bg-white shadow-xl rounded-lg max-h-[675px] h-full block hover:scale-105 transition-transform ease-in-out duration-500"

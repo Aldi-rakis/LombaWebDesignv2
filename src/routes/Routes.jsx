@@ -56,7 +56,7 @@ function RoutesIndex() {
 
 
              {/* route "homepage" */}
-             <Route path="/pesan" element={<Pesanan addProduct={addProduct} removeProduct={removeProduct} cartItems={cartItems}/>} />
+             <Route path="/pesan" element={<Pesanan addProduct={addProduct} removeProduct={removeProduct} cartItems={cartItems} setCartItems={setCartItems}/>} />
 
              <Route path="/ai" element={<GeminiAIComponent />} />
 
