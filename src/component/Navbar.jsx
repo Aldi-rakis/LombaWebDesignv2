@@ -4,10 +4,12 @@ import {
   Collapse,
   Typography,
   Button,
-  IconButton,
 } from "@material-tailwind/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useLocation } from "react-router-dom"; // Tambahkan ini
+import { useLocation } from "react-router-dom";
+
+// Impor gambar untuk tombol navbar
+import openIcon from "../assets/open.png";
+import closeIcon from "../assets/close.png";
 
 // Komponen untuk item navigasi
 const NavItem = ({ label, href, isActive }) => (
@@ -38,7 +40,7 @@ const NavList = () => {
       {[
         { label: "Home", href: "/" },
         { label: "Order", href: "/pesan" },
-        { label: "Blog ", href: "/blog" },
+        { label: "Blog", href: "/blog" },
       ].map((navItem) => (
         <NavItem
           key={navItem.label}
@@ -83,27 +85,24 @@ const NavbarWithSimpleLinks = () => {
         <Button
           className="bg-[#FB9333] hidden lg:inline-block hover:bg-[#c88342] hover:text-white transition-colors"
         >
-          Sign in
+         Download App
         </Button>
-        <IconButton
-          size="sm"
-          variant="text"
-          color="blue-gray"
+        <button
           onClick={handleOpen}
-          className="ml-auto inline-block text-black lg:hidden hover:text-blue-500 transition-colors"
+          className="ml-auto inline-block text-black lg:hidden"
         >
-          {open ? (
-            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-          ) : (
-            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-          )}
-        </IconButton>
+          <img
+            src={open ? closeIcon : openIcon}
+            alt={open ? "Close Menu" : "Open Menu"}
+            className="h-6 w-6"
+          />
+        </button>
       </div>
-      <Collapse open={open}>
-        <div className="mt-2 rounded-xl py-2">
+      <Collapse open={open} className="lg:hidden">
+        <div className="mt-2 rounded-xl py-2 px-4 bg-white shadow-md">
           <NavList />
           <Button
-            className="mt-3 w-full bg-[#FB9333] hover:bg-[#FB9333] transition-colors"
+            className="mt-3 w-full bg-[#FB9333] hover:bg-[#c88342] text-white transition-colors"
           >
             Sign in
           </Button>
