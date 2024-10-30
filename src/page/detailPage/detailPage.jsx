@@ -25,6 +25,8 @@ L.Icon.Default.mergeOptions({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
+window.screenY = 0
+
 const DetailPage = ({ addProduct, removeProduct, cartItems }) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const { id } = useParams();
