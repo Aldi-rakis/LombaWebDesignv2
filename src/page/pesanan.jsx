@@ -31,7 +31,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom'
 
 
-function Pesanan({ addProduct , removeProduct, cartItems}) {
+function Pesanan({ addProduct, removeProduct, cartItems }) {
 
   useEffect(() => {
     AOS.init();
@@ -152,7 +152,7 @@ function Pesanan({ addProduct , removeProduct, cartItems}) {
 
 
   const handleOrder = () => {
-    if(cartItems.length > 0){
+    if (cartItems.length > 0) {
       setIsSuccessOrder(true)
       setIsConfirmOpen(false)
     }
@@ -429,7 +429,7 @@ function Pesanan({ addProduct , removeProduct, cartItems}) {
             </div>
             <div className="w-full">
               <div className="overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth">
-                <div className="flex gap-4 pb-4 min-w-min">
+                <div className="flex gap-4 pb-4 py-10 min-w-min">
                   {dummy.map((item, index) => (
                     <div
                       key={index}
@@ -437,48 +437,61 @@ function Pesanan({ addProduct , removeProduct, cartItems}) {
                       data-aos="fade-up"
                       data-aos-duration={`${400 + index * 300}`}
                     >
-                      <div className="relative">
-                        <div className="p-2">
-                          <img
-                            src={burger}
-                            alt=""
-                            className="w-full h-[200px] object-cover rounded-lg"
-                          />
-                        </div>
-                        <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2">
-                          <button
-                            className="border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold"
-                            onClick={() => removeProduct(item)}
-                          >
-                            -
-                          </button>
-                          <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
-                          <button
-                            className="border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold"
-                            onClick={() => addProduct(item)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="p-3">
-                        <div className="h-[100px] sm:h-[120px]">
-                          <div className="flex items-center justify-between my-1">
-                            <h1
-                              className="text-sm md:text-lg font-semibold truncate max-w-[65%]"
-                              title={item.name}
-                            >
-                              {item.name || 'Unnamed Item'}
-                            </h1>
-                            <h4 className="text-sm font-medium">Rp. {item.price}</h4>
+                      <div >
+                        <div
+                          className="group bg-white shadow-xl rounded-lg max-h-[675px] h-full block hover:scale-105 transition-transform ease-in-out duration-500"
+
+                        >
+                          <div className="relative overflow-hidden">
+                            <div className="p-2 rounded">
+                              <img
+                                src={burger}
+                                alt=""
+                                className="bg-centers object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                              />
+                            </div>
+                            <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2 z-10">
+                              <button
+                                className="border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold hover:bg-[#F17228] hover:text-white transition-colors duration-300"
+                                onClick={() => removeProduct(item)}
+                              >
+                                -
+                              </button>
+                              <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
+                              <button
+                                className="border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold hover:bg-[#F17228]/90 transition-colors duration-300"
+                                onClick={() => addProduct(item)}
+                              >
+                                +
+                              </button>
+                            </div>
                           </div>
-                          <p className="text-justify mb-2 text-[14px] font-medium opacity-55">
-                            The salad is fresh!!! Don't ask about the sauce again, it's really delicious
-                          </p>
+
+                          <div className="p-3 group-hover:bg-gray-50 transition-colors duration-300">
+                            <div className="max-h-[200px] h-[100px] sm:h-[120px]">
+                              <div className="flex items-center justify-between my-1">
+                                <h1
+                                  className="text-sm md:text-lg font-semibold truncate max-w-[65%] group-hover:text-[#F17228] transition-colors duration-300"
+                                  title={item.name}
+                                >
+                                  {item.name || 'Unnamed Item'}
+                                </h1>
+                                <h4 className="text-sm font-medium">Rp. {item.price}</h4>
+                              </div>
+                              <p className="text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55 group-hover:opacity-75 transition-opacity duration-300">
+                                The salad is fresh!!! Don't ask about the sauce again, it's really delicious
+                              </p>
+                            </div>
+                            <Link to={`/detail/${item.id}`}>
+                              <button
+                                onClick={() => onDetailClick(item.id)}
+                                className="w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858] group-hover:bg-[#F17228]/90 transition-colors duration-300"
+                              >
+                                Lihat Detail
+                              </button>
+                            </Link>
+                          </div>
                         </div>
-                        <button className="w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]">
-                          Lihat Detail
-                        </button>
                       </div>
                     </div>
                   ))}
@@ -498,59 +511,61 @@ function Pesanan({ addProduct , removeProduct, cartItems}) {
             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div
-                    className="group bg-white shadow-xl rounded-lg max-h-[675px] h-full block hover:scale-125 transition-shadow duration-300"
-                    data-aos="fade-up"
-                    data-aos-duration={400}
-                  >
-                    <div className="relative overflow-hidden">
-                      <div className="p-2">
-                        <img
-                          src={burger}
-                          alt=""
-                          className="bg-centers object-cover w-full h-full transition-transform duration-500 ease-in-out"
-                        />
-                      </div>
-                      <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2 z-10">
-                        <button
-                          className="border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold hover:bg-[#F17228] hover:text-white transition-colors duration-300"
-                          onClick={() => removeProduct(item)}
-                        >
-                          -
-                        </button>
-                        <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
-                        <button
-                          className="border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold hover:bg-[#F17228]/90 transition-colors duration-300"
-                          onClick={() => addProduct(item)}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
+                  <div  data-aos="fade-up"
+                    data-aos-duration={400}>
+                    <div
+                      className="group bg-white shadow-xl rounded-lg max-h-[675px] h-full block hover:scale-105 transition-transform ease-in-out duration-500"
 
-                    <div className="p-3 group-hover:bg-gray-50 transition-colors duration-300">
-                      <div className="max-h-[200px] h-[100px] sm:h-[120px]">
-                        <div className="flex items-center justify-between my-1">
-                          <h1
-                            className="text-sm md:text-lg font-semibold truncate max-w-[65%] group-hover:text-[#F17228] transition-colors duration-300"
-                            title={item.name}
-                          >
-                            {item.name || 'Unnamed Item'}
-                          </h1>
-                          <h4 className="text-sm font-medium">Rp. {item.price}</h4>
+                    >
+                      <div className="relative overflow-hidden">
+                        <div className="p-2 rounded">
+                          <img
+                            src={burger}
+                            alt=""
+                            className="bg-centers object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                          />
                         </div>
-                        <p className="text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55 group-hover:opacity-75 transition-opacity duration-300">
-                          The salad is fresh!!! Don't ask about the sauce again, it's really delicious
-                        </p>
+                        <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2 z-10">
+                          <button
+                            className="border-2 rounded-full px-2 border-[#F17228] text-[#F17228] font-bold hover:bg-[#F17228] hover:text-white transition-colors duration-300"
+                            onClick={() => removeProduct(item)}
+                          >
+                            -
+                          </button>
+                          <p>{cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 0}</p>
+                          <button
+                            className="border-2 rounded-full px-2 h-[32px] bg-[#F17228] text-white font-bold hover:bg-[#F17228]/90 transition-colors duration-300"
+                            onClick={() => addProduct(item)}
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
-                      <Link to={`/detail/${item.id}`}>
-                        <button
-                          onClick={() => onDetailClick(item.id)}
-                          className="w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858] group-hover:bg-[#F17228]/90 transition-colors duration-300"
-                        >
-                          Lihat Detail
-                        </button>
-                      </Link>
+
+                      <div className="p-3 group-hover:bg-gray-50 transition-colors duration-300">
+                        <div className="max-h-[200px] h-[100px] sm:h-[120px]">
+                          <div className="flex items-center justify-between my-1">
+                            <h1
+                              className="text-sm md:text-lg font-semibold truncate max-w-[65%] group-hover:text-[#F17228] transition-colors duration-300"
+                              title={item.name}
+                            >
+                              {item.name || 'Unnamed Item'}
+                            </h1>
+                            <h4 className="text-sm font-medium">Rp. {item.price}</h4>
+                          </div>
+                          <p className="text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55 group-hover:opacity-75 transition-opacity duration-300">
+                            The salad is fresh!!! Don't ask about the sauce again, it's really delicious
+                          </p>
+                        </div>
+                        <Link to={`/detail/${item.id}`}>
+                          <button
+                            onClick={() => onDetailClick(item.id)}
+                            className="w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858] group-hover:bg-[#F17228]/90 transition-colors duration-300"
+                          >
+                            Lihat Detail
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )

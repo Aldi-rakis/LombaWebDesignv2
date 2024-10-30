@@ -70,7 +70,7 @@ const NavbarWithSimpleLinks = () => {
 
   return (
     <Navbar fullWidth className="fixed top-0 left-0 z-50 w-full">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <div className="container py-2 mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="/"
