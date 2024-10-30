@@ -18,7 +18,7 @@ import Navbar from '../component/Navbar';
 
 import people from '../assets/people.png'
 import about from '../assets/about.png'
-import icon from '../assets/icon-no1.png'
+import icon from '../assets/icon_no1.png'
 import icon2 from '../assets/icon2.png'
 import icon3 from '../assets/icon3.png'
 import discount from '../assets/discount.png'
