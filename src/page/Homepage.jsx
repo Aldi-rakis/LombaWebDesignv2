@@ -28,6 +28,10 @@ import phone from '../assets/phone.png'
 import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
 import ChatBot from '../component/chatbot';
+import berita1 from '../assets/blog/berita-1.jpg'
+import berita2 from '../assets/blog/berita-2.jpg'
+import berita3 from '../assets/blog/berita-3.jpg'
+import berita4 from '../assets/blog/berita-4.jpeg'
 
 const Homepage = () => {
 
@@ -216,102 +220,101 @@ const Homepage = () => {
 </section> 
 
 <section id='berita' className="container mx-auto px-4 py-6 lg:px-[100px] ">
-      <div data-aos="fade-left"
-     data-aos-duration="1000"
-   className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {/* Card 1 */}
-        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
-          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img
-              src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-              alt="card-image"
-            />
-          </div>
-          <div className="p-4 flex-grow">
-            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-              Website Review Check
-            </h6>
-            <p className="text-slate-600 leading-normal font-light">
-              The place is close to Barcelonloeta l by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
-            </p>
-          </div>
-          <div className="px-4 pb-4 mt-auto">
-            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
-              Read more
-            </button>
-          </div>
-        </div>
-
-        {/* Card 2 */}
-        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
-          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img
-              src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-              alt="card-image"
-            />
-          </div>
-          <div className="p-4 flex-grow">
-            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-              Travel Destination
-            </h6>
-            <p className="text-slate-600 leading-normal font-light">
-              Explore the beautiful beaches and historic landmarks that make this place a must-visit destination.
-            </p>
-          </div>
-          <div className="px-4 pb-4 mt-auto">
-            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#ffa047]">
-              Read more
-            </button>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
-          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-              alt="card-image"
-            />
-          </div>
-          <div className="p-4 flex-grow">
-            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-              Adventure Awaits
-            </h6>
-            <p className="text-slate-600 leading-normal font-light">
-              Whether you're a thrill-seeker or just looking to relax, this destination offers something for everyone.
-            </p>
-          </div>
-          <div className="px-4 pb-4 mt-auto">
-            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
-              Read more
-            </button>
-          </div>
-        </div>
-
-        {/* Card 4 */}
-        <div className="relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full">
-          <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-              alt="card-image"
-            />
-          </div>
-          <div className="p-4 flex-grow">
-            <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-              City Lights and Nightlife
-            </h6>
-            <p className="text-slate-600 leading-normal font-light">
-              Experience the vibrant nightlife and iconic skyline of this bustling city.
-            </p>
-          </div>
-          <div className="px-4 pb-4 mt-auto">
-            <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
-              Read more
-            </button>
-          </div>
-        </div>
+  <div
+    data-aos="fade-left"
+    data-aos-duration="1000"
+    className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
+    {/* Card 1 */}
+    <div className="group relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full transition-all transform hover:shadow-lg hover:scale-105">
+      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+        <img
+          src={berita1}
+          alt="card-image"
+          className="object-cover w-full h-full transition-transform duration-300 transform group-hover:scale-110"
+        />
       </div>
-    </section>
+      <div className="p-4 flex-grow">
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Website Review Check</h6>
+        <p className="text-slate-600 leading-normal font-light">
+          The place is close to Barcelonloeta l by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+        </p>
+      </div>
+      <div className="px-4 pb-4 mt-auto">
+        <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+          Read more
+        </button>
+      </div>
+    </div>
+
+    {/* Card 2 */}
+    <div className="group relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full transition-all transform hover:shadow-lg hover:scale-105">
+      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+        <img
+          src={berita2}        
+          alt="card-image"
+          className="object-cover w-full h-full transition-transform duration-300 transform group-hover:scale-110"
+        />
+      </div>
+      <div className="p-4 flex-grow">
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Travel Destination</h6>
+        <p className="text-slate-600 leading-normal font-light">
+          Explore the beautiful beaches and historic landmarks that make this place a must-visit destination.
+        </p>
+      </div>
+      <div className="px-4 pb-4 mt-auto">
+        <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#ffa047]">
+          Read more
+        </button>
+      </div>
+    </div>
+
+    {/* Card 3 */}
+    <div className="group relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full transition-all transform hover:shadow-lg hover:scale-105">
+      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+        <img
+          src={berita3}          
+          alt="card-image"
+          className="object-cover w-full h-full  transition-transform duration-300 transform group-hover:scale-110"
+        />
+      </div>
+      <div className="p-4 flex-grow">
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Adventure Awaits</h6>
+        <p className="text-slate-600 leading-normal font-light">
+          Whether you're a thrill-seeker or just looking to relax, this destination offers something for everyone.
+        </p>
+      </div>
+      <div className="px-4 pb-4 mt-auto">
+        <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+          Read more
+        </button>
+      </div>
+    </div>
+
+    {/* Card 4 */}
+    <div className="group relative flex flex-col h-full my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-full transition-all transform hover:shadow-lg hover:scale-105">
+      <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+        <img
+         src={berita4}
+          alt="card-image"
+          className="object-cover w-full h-full  transition-transform duration-300 transform group-hover:scale-110"
+        />
+      </div>
+      <div className="p-4 flex-grow">
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">City Lights and Nightlife</h6>
+        <p className="text-slate-600 leading-normal font-light">
+          Experience the vibrant nightlife and iconic skyline of this bustling city.
+        </p>
+      </div>
+      <div className="px-4 pb-4 mt-auto">
+        <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
+          Read more
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <section id='Testimonial' className='bg-[#FFF2E1] justify-center items-center'>
@@ -499,114 +502,115 @@ const Homepage = () => {
 
 
     
-  <footer className="bg-gray-900 text-gray-400 py-10 px-6 lg:px-20">
-      {/* Top Cities Section */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-        <div>
-          <h3 className="text-white text-lg mb-2">Our top cities</h3>
-          <ul className="space-y-1">
-            <li className="hover:text-white transition-colors">San Francisco</li>
-            <li className="hover:text-white transition-colors">Miami</li>
-            <li className="hover:text-white transition-colors">San Diego</li>
-            <li className="hover:text-white transition-colors">East Bay</li>
-            <li className="hover:text-white transition-colors">Long Beach</li>
-          </ul>
-        </div>
-        <div>
-          <ul className="space-y-1 mt-6 sm:mt-0">
-            <li className="hover:text-white transition-colors">Los Angeles</li>
-            <li className="hover:text-white transition-colors">Washington DC</li>
-            <li className="hover:text-white transition-colors">Seattle</li>
-            <li className="hover:text-white transition-colors">Portland</li>
-            <li className="hover:text-white transition-colors">Nashville</li>
-          </ul>
-        </div>
-        <div>
-          <ul className="space-y-1 mt-6 sm:mt-0">
-            <li className="hover:text-white transition-colors">New York City</li>
-            <li className="hover:text-white transition-colors">Orange County</li>
-            <li className="hover:text-white transition-colors">Atlanta</li>
-            <li className="hover:text-white transition-colors">Charlotte</li>
-            <li className="hover:text-white transition-colors">Denver</li>
-          </ul>
-        </div>
-        <div>
-          <ul className="space-y-1 mt-6 sm:mt-0">
-            <li className="hover:text-white transition-colors">Chicago</li>
-            <li className="hover:text-white transition-colors">Phoenix</li>
-            <li className="hover:text-white transition-colors">Las Vegas</li>
-            <li className="hover:text-white transition-colors">Sacramento</li>
-            <li className="hover:text-white transition-colors">Oklahoma City</li>
-          </ul>
-        </div>
+<footer className="bg-gray-900 text-gray-400 py-10 px-6 lg:px-20">
+  {/* Top Cities Section */}
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+    <div>
+      <h3 className="text-white text-lg mb-2">Our top cities</h3>
+      <ul className="space-y-1">
+        <li className="hover:text-white transition-colors">Jakarta</li>
+        <li className="hover:text-white transition-colors">Bandung</li>
+        <li className="hover:text-white transition-colors">Surabaya</li>
+        <li className="hover:text-white transition-colors">Medan</li>
+        <li className="hover:text-white transition-colors">Makassar</li>
+      </ul>
+    </div>
+    <div>
+      <ul className="space-y-1 mt-6 sm:mt-0">
+        <li className="hover:text-white transition-colors">Yogyakarta</li>
+        <li className="hover:text-white transition-colors">Semarang</li>
+        <li className="hover:text-white transition-colors">Palembang</li>
+        <li className="hover:text-white transition-colors">Bali</li>
+        <li className="hover:text-white transition-colors">Balikpapan</li>
+      </ul>
+    </div>
+    <div>
+      <ul className="space-y-1 mt-6 sm:mt-0">
+        <li className="hover:text-white transition-colors">Manado</li>
+        <li className="hover:text-white transition-colors">Padang</li>
+        <li className="hover:text-white transition-colors">Pontianak</li>
+        <li className="hover:text-white transition-colors">Batam</li>
+        <li className="hover:text-white transition-colors">Banjarmasin</li>
+      </ul>
+    </div>
+    <div>
+      <ul className="space-y-1 mt-6 sm:mt-0">
+        <li className="hover:text-white transition-colors">Malang</li>
+        <li className="hover:text-white transition-colors">Kupang</li>
+        <li className="hover:text-white transition-colors">Pekanbaru</li>
+        <li className="hover:text-white transition-colors">Jayapura</li>
+        <li className="hover:text-white transition-colors">Ambon</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* Company, Contact, Legal, Social and Subscription Section */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
+    {/* Company Section */}
+    <div>
+      <h3 className="text-white text-lg mb-2">Company</h3>
+      <ul className="space-y-1">
+        <li className="hover:text-white transition-colors">About us</li>
+        <li className="hover:text-white transition-colors">Team</li>
+        <li className="hover:text-white transition-colors">Careers</li>
+        <li className="hover:text-white transition-colors">Blog</li>
+      </ul>
+    </div>
+
+    {/* Contact Section */}
+    <div>
+      <h3 className="text-white text-lg mb-2">Contact</h3>
+      <ul className="space-y-1">
+        <li className="hover:text-white transition-colors">Help & Support</li>
+        <li className="hover:text-white transition-colors">Partner with us</li>
+        <li className="hover:text-white transition-colors">Ride with us</li>
+      </ul>
+    </div>
+
+    {/* Legal Section */}
+    <div>
+      <h3 className="text-white text-lg mb-2">Legal</h3>
+      <ul className="space-y-1">
+        <li className="hover:text-white transition-colors">Terms & Conditions</li>
+        <li className="hover:text-white transition-colors">Refund & Cancellation</li>
+        <li className="hover:text-white transition-colors">Privacy Policy</li>
+        <li className="hover:text-white transition-colors">Cookie Policy</li>
+      </ul>
+    </div>
+
+    {/* Social Media and Subscription Section */}
+    <div>
+      <h3 className="text-white text-lg mb-2">FOLLOW US</h3>
+      <div className="flex space-x-4 mb-4">
+        {/* Social Media Icons */}
+        <a href="#" className="hover:text-white transition-colors">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="#" className="hover:text-white transition-colors">
+          <i className="fab fa-facebook"></i>
+        </a>
+        <a href="#" className="hover:text-white transition-colors">
+          <i className="fab fa-twitter"></i>
+        </a>
       </div>
+      <p className="mb-2">Receive exclusive offers in your mailbox</p>
+      <form className="flex flex-col lg:flex-row">
+        <input
+          type="email"
+          placeholder="Enter Your email"
+          className="w-full text-sm md:text-lg px-3 py-2 rounded-l-md bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        />
+        <button
+          type="submit"
+          className="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-2 rounded-r-md transition-colors"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </div>
+</footer>
 
-      {/* Company, Contact, Legal, Social and Subscription Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
-        {/* Company Section */}
-        <div>
-          <h3 className="text-white text-lg mb-2">Company</h3>
-          <ul className="space-y-1">
-            <li className="hover:text-white transition-colors">About us</li>
-            <li className="hover:text-white transition-colors">Team</li>
-            <li className="hover:text-white transition-colors">Careers</li>
-            <li className="hover:text-white transition-colors">Blog</li>
-          </ul>
-        </div>
-
-        {/* Contact Section */}
-        <div>
-          <h3 className="text-white text-lg mb-2">Contact</h3>
-          <ul className="space-y-1">
-            <li className="hover:text-white transition-colors">Help & Support</li>
-            <li className="hover:text-white transition-colors">Partner with us</li>
-            <li className="hover:text-white transition-colors">Ride with us</li>
-          </ul>
-        </div>
-
-        {/* Legal Section */}
-        <div>
-          <h3 className="text-white text-lg mb-2">Legal</h3>
-          <ul className="space-y-1">
-            <li className="hover:text-white transition-colors">Terms & Conditions</li>
-            <li className="hover:text-white transition-colors">Refund & Cancellation</li>
-            <li className="hover:text-white transition-colors">Privacy Policy</li>
-            <li className="hover:text-white transition-colors">Cookie Policy</li>
-          </ul>
-        </div>
-
-        {/* Social Media and Subscription Section */}
-        <div>
-          <h3 className="text-white text-lg mb-2">FOLLOW US</h3>
-          <div className="flex space-x-4 mb-4">
-            {/* Social Media Icons */}
-            <a href="#" className="hover:text-white transition-colors">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-          <p className="mb-2">Receive exclusive offers in your mailbox</p>
-          <form className="flex flex-col lg:flex-row">
-            <input
-              type="email"
-              placeholder="Enter Your email"
-              className="w-full text-sm md:text-lg px-3 py-2 rounded-l-md bg-gray-800 text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            />
-            <button
-              type="submit"
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-2 rounded-r-md transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </footer>
 
 
 

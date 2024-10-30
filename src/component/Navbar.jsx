@@ -38,7 +38,7 @@ const NavList = () => {
       {[
         { label: "Home", href: "/" },
         { label: "Order", href: "/pesan" },
-        { label: "Contact Us", href: "/contact-us" },
+        { label: "Blog ", href: "/blog" },
       ].map((navItem) => (
         <NavItem
           key={navItem.label}
