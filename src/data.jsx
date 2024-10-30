@@ -1,6 +1,8 @@
 import menu1  from '../src/assets/blog/berita-1.jpg'
 import menu2  from '../src/assets/blog/berita-2.jpg'
 import menu3  from '../src/assets/menu/menu1.jpeg'
+import menu4 from './assets/blog/Crispy-sandwich.webp'
+import menu5 from './assets/blog/thai.jpg'
 
 
 
@@ -8,7 +10,7 @@ const dummy = [
     {
         id: 1,
         name: "Cheese Burger",
-        img :  menu1,
+        img :  menu3,
         price: 30000,
         desc: "Our signature Cheese Burger is crafted with juicy, tender beef, topped with a slice of perfectly melted cheese, and fresh, crispy lettuce. The salad is hand-picked and freshly prepared, adding an exceptional crunch. Complemented by a creamy and secret special sauce, it gives an unforgettable taste experience.",
         remainingDays: 3,
@@ -41,7 +43,7 @@ const dummy = [
     {
         id: 3,
         name: "Dancake",
-        img :  menu3,
+        img :  menu1,
         price: 40000,
         desc: "Dancake is a fluffy and light cake, generously layered with rich cream and topped with fresh berries. Its delicate sponge cake base combined with creamy filling offers a balanced taste, making it a perfect dessert or a treat for special occasions.",
         remainingDays: 5,
@@ -58,6 +60,7 @@ const dummy = [
         id: 4,
         name: "Crispy Sandwich",
         price: 10000,
+        img: menu4,
         desc: "This Crispy Sandwich is made with freshly baked bread, loaded with a selection of tender meats, fresh lettuce, and our homemade mayo spread. Its crunchy texture and savory filling make it a satisfying meal on the go.",
         remainingDays: 4,
         rating: 4.3,
@@ -73,6 +76,7 @@ const dummy = [
         id: 5,
         name: "Thai Soup",
         price: 22000,
+        img: menu5,
         desc: "Our Thai Soup combines the richness of coconut milk with aromatic spices and herbs, giving it a smooth yet spicy flavor. With fresh vegetables and tender chicken chunks, it’s a wholesome, comforting dish perfect for a chilly day.",
         remainingDays: 2,
         rating: 4.6,
@@ -90,6 +94,7 @@ const dummy = [
         price: 120000,
         desc: "The Cheese Burger Supreme takes your burger experience to the next level with double layers of juicy beef patties, crispy bacon, and extra cheese, all topped with our signature sauce. This burger promises an indulgent flavor explosion.",
         remainingDays: 3,
+        img: menu3,
         rating: 4.8,
         testimonials: [
             { user: "Amy", comment: "This burger is massive and delicious!" },
@@ -102,6 +107,7 @@ const dummy = [
     {
         id: 7,
         name: "Cheese Burger Classic",
+        img: menu3,
         price: 10000,
         desc: "The Cheese Burger Classic is a perfect combination of a beef patty, fresh lettuce, tomatoes, and creamy sauce, served in a soft bun. It’s a timeless favorite that satisfies burger lovers with every bite.",
         remainingDays: 5,
