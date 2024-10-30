@@ -1,7 +1,14 @@
+import menu1  from '../src/assets/blog/berita-1.jpg'
+import menu2  from '../src/assets/blog/berita-2.jpg'
+import menu3  from '../src/assets/menu/menu1.jpeg'
+
+
+
 const dummy = [
     {
         id: 1,
         name: "Cheese Burger",
+        img :  menu1,
         price: 30000,
         desc: "Our signature Cheese Burger is crafted with juicy, tender beef, topped with a slice of perfectly melted cheese, and fresh, crispy lettuce. The salad is hand-picked and freshly prepared, adding an exceptional crunch. Complemented by a creamy and secret special sauce, it gives an unforgettable taste experience.",
         remainingDays: 3,
@@ -17,6 +24,7 @@ const dummy = [
     {
         id: 2,
         name: "Toffe’s Cake",
+        img :  menu2, 
         price: 10000,
         desc: "Toffe’s Cake is a delightful dessert with a moist texture, layered with creamy toffee sauce that brings a rich sweetness. It’s topped with caramelized sugar for an added crunch. Perfectly paired with tea or coffee, this cake will satisfy your sweet cravings.",
         remainingDays: 7,
@@ -33,6 +41,7 @@ const dummy = [
     {
         id: 3,
         name: "Dancake",
+        img :  menu3,
         price: 40000,
         desc: "Dancake is a fluffy and light cake, generously layered with rich cream and topped with fresh berries. Its delicate sponge cake base combined with creamy filling offers a balanced taste, making it a perfect dessert or a treat for special occasions.",
         remainingDays: 5,

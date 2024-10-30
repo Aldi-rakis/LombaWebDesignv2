@@ -128,7 +128,7 @@ const Homepage = () => {
           </button>
         </div>
 
-        <div className='relative py-5 px-5 md:px-[70px] hover:scale-101'>
+        <div className='w-full md:w-1/3 relative py-5 px-5 md:px-[70px] hover:scale-101'>
           {/* Gambar utama */}
           <img className='w-[100%] md:w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
 
@@ -161,7 +161,7 @@ const Homepage = () => {
 
     <div className='flex justify-center items-center'>
       {/* Grid untuk card */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 px-2 md:px-[5px] items-center mt-5 md:mt-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 px-2 md:px-[5px] items-center mt-5 md:mt-10 relative z-0'>
         
         {/* Card 1 */}
         <div data-aos="flip-left" data-aos-duration="1000"
@@ -235,10 +235,9 @@ const Homepage = () => {
         />
       </div>
       <div className="p-4 flex-grow">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Website Review Check</h6>
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Sinergi Tingkatkan Efisiensi Rantai Pangan, Berantas Food Loss and Waste. </h6>
         <p className="text-slate-600 leading-normal font-light">
-          The place is close to Barcelonloeta l by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
-        </p>
+        “Permasalahan food waste juga dapat disebabkan karena tidak diterapkannya cara distribusi/peredaran pangan olahan yang baik (CPerPOB),         </p>
       </div>
       <div className="px-4 pb-4 mt-auto">
         <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
@@ -257,10 +256,9 @@ const Homepage = () => {
         />
       </div>
       <div className="p-4 flex-grow">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Travel Destination</h6>
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Nilai Sisa Sampah Makanan Tembus Rp 500 Triliun</h6>
         <p className="text-slate-600 leading-normal font-light">
-          Explore the beautiful beaches and historic landmarks that make this place a must-visit destination.
-        </p>
+        Nilai Sisa Sampah Makanan Tembus Rp 500 Triliun yang menyebabkan kerugian negara yang harus diambil langkah tegas untuk mengtasinya.      </p>
       </div>
       <div className="px-4 pb-4 mt-auto">
         <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#ffa047]">
@@ -279,10 +277,9 @@ const Homepage = () => {
         />
       </div>
       <div className="p-4 flex-grow">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Adventure Awaits</h6>
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Melek Isu "Food Loss" dan "Food Waste"</h6>
         <p className="text-slate-600 leading-normal font-light">
-          Whether you're a thrill-seeker or just looking to relax, this destination offers something for everyone.
-        </p>
+        Isu “Food Loss” dan “Food Waste” semakin menjadi perhatian global, terutama karena dampaknya yang signifikan terhadap ketahanan pangan dan lingkungan.         </p>
       </div>
       <div className="px-4 pb-4 mt-auto">
         <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
@@ -301,10 +298,9 @@ const Homepage = () => {
         />
       </div>
       <div className="p-4 flex-grow">
-        <h6 className="mb-2 text-slate-800 text-xl font-semibold">City Lights and Nightlife</h6>
+        <h6 className="mb-2 text-slate-800 text-xl font-semibold">Aplikasi untuk Makanan Berlebih dari Hotel, Katering, Restoran</h6>
         <p className="text-slate-600 leading-normal font-light">
-          Experience the vibrant nightlife and iconic skyline of this bustling city.
-        </p>
+        Inisiatif ini tidak hanya membantu mengurangi food waste, tetapi juga mendukung mereka yang kurang mampu dengan menyediakan akses terhadap makanan berkualitas        </p>
       </div>
       <div className="px-4 pb-4 mt-auto">
         <button className="w-full rounded-md bg-[#FB9333] py-2 px-4 text-center text-sm text-white transition-all shadow-md hover:bg-[#FB9333]">
@@ -341,7 +337,7 @@ const Homepage = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className=""
         breakpoints={{
           // Responsive breakpoints
           640: {

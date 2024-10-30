@@ -41,6 +41,7 @@ const NavList = () => {
         { label: "Home", href: "/" },
         { label: "Order", href: "/pesan" },
         { label: "Blog", href: "/blog" },
+        { label: "About", href: "/about" },
       ].map((navItem) => (
         <NavItem
           key={navItem.label}
@@ -104,8 +105,8 @@ const NavbarWithSimpleLinks = () => {
           <Button
             className="mt-3 w-full bg-[#FB9333] hover:bg-[#c88342] text-white transition-colors"
           >
-            Sign in
-          </Button>
+         Download App
+         </Button>
         </div>
       </Collapse>
     </Navbar>

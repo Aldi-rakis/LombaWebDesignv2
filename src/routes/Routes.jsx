@@ -15,6 +15,7 @@ import Blog from "../page/Blog";
 import Blogdetail from "../page/Blog-Detail";
 import DetailPage from "../page/detailPage/detailPage";
 import { useState } from "react";
+import About from "../page/About";
 
 function RoutesIndex() {
 
@@ -63,6 +64,9 @@ function RoutesIndex() {
              <Route path="/blog" element={<Blog />} />
 
              <Route path="/blog/detail" element={<Blogdetail />} />
+
+             <Route path="/about" element={<About />} />
+
 
 
             <Route path="/detail/:id" element={<DetailPage addProduct={addProduct} removeProduct={removeProduct} cartItems={cartItems} />} />
