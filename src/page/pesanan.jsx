@@ -484,11 +484,11 @@ function Pesanan({ addProduct, removeProduct, cartItems, setCartItems }) {
   return (
     <div key={index} data-aos="fade-up" data-aos-duration={400}>
       <div className="group bg-white shadow-xl rounded-lg max-h-[675px] h-full block hover:scale-105 transition-transform ease-in-out duration-500">
-        <div className="relative overflow-hidden h-[150px] lg:h-[250px] w-full">
+        <div className="relative overflow-hidden  h-[150px] lg:h-[250px] w-full">
           <img
             src={item.img}
             alt=""
-            className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+            className="w-full h-full px-2 rounded-2xl object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
           />
           <div className="bg-white py-1 px-3 rounded-full flex items-center absolute top-4 left-4 gap-2 z-10">
             <button
