@@ -51,11 +51,10 @@ const Blog = () => {
               <div className="grow">
               <Link to="/blog/detail" >
                 <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                  Onsite
+               Solusi Baru dalam Mengatasi Limbah Makanan di Indonesia
                 </h3>
                 <p className="mt-3 text-gray-600">
-                  Optimize your in-person experience with best-in-class capabilities like badge printing and lead retrieval
-                </p>
+                Limbah makanan menjadi masalah besar di seluruh dunia, termasuk di Indonesia.               </p>
                 <p className="mt-4 inline-flex items-center gap-x-1 text-sm text-orange-400 decoration-2 group-hover:underline group-focus:underline font-medium">
                   Read more
                   <svg className="shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -76,10 +75,11 @@ const Blog = () => {
               <div className="grow">
               <Link to="/blog/detail" >
                 <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                  The complete guide to OKRs
+                Atasi Limbah Makanan, FoodCycle Sediakan Makanan Berkualitas dengan Harga Terjangkau"
+                
                 </h3>
                 <p className="mt-3 text-gray-600">
-                  How to make objectives and key results work for your company
+                Limbah makanan menjadi masalah hegemoni di seluruh dunia, termasuk di Indonesia.
                 </p>
                 <p className="mt-4 inline-flex items-center gap-x-1 text-sm text-orange-400 decoration-2 group-hover:underline group-focus:underline font-medium">
                   Read more
@@ -101,10 +101,10 @@ const Blog = () => {
               <div className="grow">
               <Link to="/blog/detail" >
                 <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                  People program models
+                Dukung Keberlanjutan: FoodCycle Menghubungkan Konsumen dengan Makanan Sisa yang Berkualitas
                 </h3>
                 <p className="mt-3 text-gray-600">
-                  Six approaches to bringing your People strategy to life
+                FoodCycle adalah sebuah platform yang menghubungkan konsumen dengan makanan sisa
                 </p>
                 <p className="mt-4 inline-flex items-center gap-x-1 text-sm text-orange-400 decoration-2 group-hover:underline group-focus:underline font-medium">
                   Read more
@@ -127,10 +127,10 @@ const Blog = () => {
               <div className="grow">
               <Link to="/blog/detail" >
                 <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                  People program models
+                Dukung Keberlanjutan: FoodCycle Menghubungkan Konsumen dengan Makanan Sisa yang Berkualitas
                 </h3>
                 <p className="mt-3 text-gray-600">
-                  Six approaches to bringing your People strategy to life
+                  FoodCycle adalah sebuah platform yang menghubungkan konsumen dengan makanan sisa
                 </p>
                 <p className="mt-4 inline-flex items-center gap-x-1 text-sm text-orange-400 decoration-2 group-hover:underline group-focus:underline font-medium">
                   Read more
@@ -152,10 +152,10 @@ const Blog = () => {
               <div className="grow">
               <Link to="/blog/detail" >
                 <h3 className="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                  People program models
+                Atasi Limbah Makanan, FoodCycle Sediakan Makanan Berkualitas dengan Harga Terjangkau"
                 </h3>
                 <p className="mt-3 text-gray-600">
-                  Six approaches to bringing your People strategy to life
+                  FoodCycle adalah sebuah platform yang menghubungkan konsumen dengan makanan sisa
                 </p>
                 <p className="mt-4 inline-flex items-center gap-x-1 text-sm text-orange-400 decoration-2 group-hover:underline group-focus:underline font-medium">
                   Read more
