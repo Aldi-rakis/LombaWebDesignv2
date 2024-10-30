@@ -18,7 +18,7 @@ import Navbar from '../component/Navbar';
 
 import people from '../assets/people.png'
 import about from '../assets/about.png'
-import icon from '../assets/icon_no1.png'
+import icon1 from '../assets/icon1.png'
 import icon2 from '../assets/icon2.png'
 import icon3 from '../assets/icon3.png'
 import discount from '../assets/discount.png'
@@ -133,7 +133,8 @@ const Homepage = () => {
           <img className='w-[100%] md:w-[300px] rounded-lg shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400' src={about} alt="" />
 
           {/* Gambar kecil di sudut kanan atas */}
-          <img className='absolute top-0 right-5 md:right-10 w-[50px] md:w-[80px] rounded-full transform translate-x-1 md:translate-x-2 translate-y-[-5px] md:translate-y-[-10px]' src={icon} alt="small overlay" />
+          <img className='absolute top-0 right-5 md:right-10 w-[50px] md:w-[80px] rounded-full transform translate-x-1 md:translate-x-2 translate-y-[-5px] md:translate-y-[-10px]' 
+          src={icon1} alt="small overlay" />
         </div>
       </div>
     </div>
