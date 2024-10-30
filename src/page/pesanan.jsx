@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { QRCodeSVG } from 'qrcode.react'
 
 import bgHome from '../assets/image/bg-home.png'
 import ramen from '../assets/image/ramen.png'
-import ads from '../assets/image/apps-ads.png'
 import Sandwich from '../assets/image/Crispy-Sandwich.png'
 import sate from '../assets/image/sate.png'
 import bgFooter from '../assets/image/bg-footer.png'
@@ -21,24 +21,47 @@ import cs from '../assets/cs.png'
 import quickdelivery from '../assets/quickdelivery.png'
 import apple from '../assets/Apple_logo.png'
 import playstore from '../assets/playstore.png'
-import ChatBot from '../component/chatbot';
 import phone from '../assets/phone.png'
-import Navbar from '../component/Navbar';
+
+import dummy from '../data'
+
+// import AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom'
 
 
-function Pesanan() {
+function Pesanan({ addProduct , removeProduct, cartItems}) {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([])
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [isSuccessOrder, setIsSuccessOrder] = useState(false);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const qrCodeRef = useRef(null);
+
+  const generatePaymentInfo = () => {
+    return {
+      orderId: Math.random().toString(36).substr(2, 9),
+      amount: cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0),
+      customerName: name,
+      customerPhone: number,
+      items: cartItems.map(item => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      }))
+    };
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  console.log(cartItems)
 
   const dummy = [
     {
@@ -106,33 +129,7 @@ function Pesanan() {
     },
   ]
 
-  const addProduct = (item) => {
-    const existingProduct = cartItems.find(cartItem => cartItem.id === item.id)
 
-    if (existingProduct) {
-      setCartItems(cartItems.map(cartItem =>
-        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      ))
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
-    }
-  }
-
-  const removeProduct = (item) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
-
-    if (existingItem) {
-      if (existingItem.quantity > 1) {
-        setCartItems(cartItems.map(cartItem =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem
-        ));
-      } else {
-        setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
-      }
-    }
-  };
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -153,9 +150,21 @@ function Pesanan() {
     setIsConfirmOpen(false); // Tutup pop-up konfirmasi
   };
 
+
+  const handleOrder = () => {
+    if(cartItems.length > 0){
+      setIsSuccessOrder(true)
+      setIsConfirmOpen(false)
+    }
+  }
+
+  const cancelPayment = () => {
+    setIsSuccessOrder(false)
+  }
+
   return (
     <>
-    {/* <Navbar /> */}
+      {/* <Navbar /> */}
 
       {/* Modal Form */}
       {isOpen && (
@@ -210,11 +219,11 @@ function Pesanan() {
                 <div className='h-60 overflow-y-auto'>
                   {
                     cartItems.map((item, index) => (
-                      <div className='mt-2 bg-[#F17228] border text-black p-3 rounded'>
+                      <div className='mt-2 border-[#F17228] border-2 text-black p-3 rounded'>
                         <div className='flex items-center justify-between'>
                           <div>
-                            <h1 className='font-semibold text-white'>{item.name}</h1>
-                            <h1 className='text-white'>{item.price * item.quantity}</h1>
+                            <h1 className='font-semibold text-[#F17228]'>{item.name}</h1>
+                            <h1 className='text-[#b35a27]'>{item.price * item.quantity}</h1>
                           </div>
 
                           <div className='bg-white py-1 px-3 rounded-full flex items-center gap-2'>
@@ -254,7 +263,7 @@ function Pesanan() {
               <button className=" text-red-600 font-semibold px-4 py-2 rounded-md w-full" onClick={handleCloseConfirm}>
                 Batalkan Pesanan
               </button>
-              <button className="bg-[#F17228] hover:bg-[#ca6022] transition-all text-white font-semibold px-4 py-2 rounded-md w-full">
+              <button onClick={handleOrder} className="bg-[#F17228] hover:bg-[#ca6022] transition-all text-white font-semibold px-4 py-2 rounded-md w-full">
                 Pesan Sekarang
               </button>
             </div>
@@ -262,6 +271,46 @@ function Pesanan() {
         </div>
       )}
 
+      {/* Pop-up qrcode */}
+      {isSuccessOrder && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 transition-all m-3">
+          <div className="fixed inset-0 bg-black bg-opacity-75"></div>
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 z-50">
+            <h2 className="text-xl font-medium mb-4">Payment Gateway</h2>
+            <div className='text-center'>
+              <h1 className="mb-4">Silahkan Scan QR Code Dibawah Ini Untuk Melakukan Pembayaran</h1>
+              <div className="flex justify-center mb-4">
+                <div className="border-2 border-[#F17228] rounded-lg p-4">
+                  <QRCodeSVG
+                    value={JSON.stringify(generatePaymentInfo())}
+                    size={256}
+                    level="H"
+                    includeMargin={true}
+                    fgColor="#F17228"
+                  />
+                </div>
+              </div>
+              <div className="text-left bg-gray-50 p-4 rounded-lg mb-4">
+                <p className="font-medium text-gray-700 mb-2">Total Pembayaran:</p>
+                <p className="text-2xl font-bold text-[#F17228]">
+                  Rp. {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toLocaleString()}
+                </p>
+              </div>
+              <p className="text-sm text-gray-500">
+                QR Code akan kadaluarsa dalam 15 menit
+              </p>
+            </div>
+            <div className="mt-4 flex justify-end items-center gap-3 w-full">
+              <button
+                onClick={cancelPayment}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md w-full transition-colors"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {
         cartItems.length > 0 && (
@@ -283,7 +332,8 @@ function Pesanan() {
         style={{ backgroundImage: `url(${bgHome})` }}>
         <div className=' h-fit m-auto w-full sm:w-[90%] flex flex-col sm:flex-row pt-32 pb-10 items-center justify-around gap-0 sm:gap-28'>
           {/* left */}
-          <div className='w-3/5 max-lg:w-[90%]'>
+          <div className='w-3/5 max-lg:w-[90%]' data-aos="fade-up"
+            data-aos-duration="1000">
             <h1 className='text-white text-6xl font-bold'>Are you starving ?</h1>
             <p className='font-medium opacity-55 my-2'>Within a few clicks, find meals that are accessible near you</p>
 
@@ -315,7 +365,9 @@ function Pesanan() {
           </div>
 
           {/* Right */}
-          <div className='drop-shadow-2xl w-2/5 max-lg:w-2/4'>
+          <div className='drop-shadow-2xl w-2/5 max-lg:w-2/4' data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="800">
             <img src={ramen} alt="" className='brightness-125 drop-shadow-2xl' />
           </div>
 
@@ -327,28 +379,40 @@ function Pesanan() {
         <div className=' h-fit'>
           <h1 className='text-3xl font-bold text-[#F17228] text-center'>How does it work</h1>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-3/4 m-auto justify-center gap-8 my-14'>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="100"
+            >
               <img src={location} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Location</h2>
                 <p className='opacity-45'>Choose the location where your food will be delivered.</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="400"
+            >
               <img src={bell} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Choose order</h2>
                 <p className='opacity-45'>Check over hundreds of menus to pick your favorite food</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="700"
+            >
               <img src={pay} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Pay advanced</h2>
                 <p className='opacity-45'>It's quick, safe, and simple. Select several methods of payment</p>
               </div>
             </div>
-            <div className=''>
+            <div
+              data-aos="flip-right"
+              data-aos-duration="1000"
+            >
               <img src={donut} alt="" className='h-40 m-auto' />
               <div className='text-center'>
                 <h2 className=' font-bold -tracking-tight'>Enjoy meals</h2>
@@ -364,12 +428,14 @@ function Pesanan() {
               <p>Makanan yang sering dibeli</p>
             </div>
             <div className="w-full">
-              <div className="overflow-x-auto snap-x snap-mandatory scroll-smooth">
+              <div className="overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth">
                 <div className="flex gap-4 pb-4 min-w-min">
                   {dummy.map((item, index) => (
                     <div
                       key={index}
                       className="flex-shrink-0 w-[240px] snap-start bg-white shadow-lg rounded-lg max-h-[675px]"
+                      data-aos="fade-up"
+                      data-aos-duration={`${400 + index * 300}`}
                     >
                       <div className="relative">
                         <div className="p-2">
@@ -432,7 +498,9 @@ function Pesanan() {
             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-5 items-center gap-2 sm:gap-5'>
               {dummy.map((item, index) => {
                 return (
-                  <div className='bg-white shadow-xl rounded-lg max-h-[675px] h-full'>
+                  <div className='bg-white shadow-xl rounded-lg max-h-[675px] h-full'
+                    data-aos="fade-up"
+                    data-aos-duration={`${400 + index * 100}`}>
                     <div className='relative'>
                       <div className='p-2'>
                         <img src={burger} alt="" className='bg-centers object-cover w-full' />
@@ -454,7 +522,9 @@ function Pesanan() {
                         </div>
                         <p className='text-justify mb-2 text-[10px] sm:text-[14px] font-medium opacity-55'>The salad is fresh!!! Don't ask about the sauce again, it's really delicious, </p>
                       </div>
+                      <Link to={`/detail/${item.id}`}>
                         <button className='w-full bg-[#F17228] text-white font-medium p-1 rounded-[5px] text-sm shadow-md shadow-[#f1722858]'>Lihat Detail</button>
+                      </Link>
                     </div>
                   </div>
                 )
